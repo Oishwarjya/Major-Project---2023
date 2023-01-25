@@ -24,7 +24,7 @@ background-attachment: local;
 }}
 [data-testid="stSidebar"] > div:first-child {{
 background-image: url("data:image/png;base64,{img}");
-background-position: top left; 
+background-position: centre; 
 background-repeat: no-repeat;
 background-attachment: fixed;
 }}
@@ -40,7 +40,8 @@ right: 2rem;
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title("SRM PLACEMENT QUERY HANDLER")
 st.sidebar.image("srm.png", use_column_width=True)
-st.sidebar.title("Information")
+st.sidebar.title("Information:")
+st.sidebar.markdown("This website is made to enable easier query and resolution for students specific to campus placements.")
 
 
 
