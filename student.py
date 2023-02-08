@@ -9,7 +9,7 @@ def get_img_as_base64(file):
     return base64.b64encode(data).decode()
 
 
-img = get_img_as_base64(r"C:\Users\Hp\Documents\SRM PQH\Major-Project---2023\image.jpg")
+img = get_img_as_base64("image.jpg")
 
 page_bg_img = f"""
 <style>
