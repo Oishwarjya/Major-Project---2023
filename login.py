@@ -51,51 +51,11 @@ with st.container():
         "Students, Admins and Department head logins"
     )
     with st.form("entry_form", clear_on_submit= True):
-        login_type=st.selectbox("Login Type", ("Student", "Admin", "Department"))
+        st.selectbox("Login Type", ("Student", "Admin", "Department"))
+        user_name=st.text_input(label="Username")  
+        password=st.text_input("Password", type='password')
+        submitted = st.form_submit_button("Confirm")
 
-        #page link       
-        if login_type=="Student":
-            def load_data(file):
-                with open(file, 'r',encoding='UTF-8') as f:
-                    reader = csv.reader(f)
-                    header = next(reader)
-                    data = [row for row in reader]
-                return header, data
-
-            header, data = load_data(r"C:\Users\Hp\Documents\SRM PQH\Major-Project---2023\student_data.xlsx")
-
-            # Create a dictionary mapping column names to column index
-            col_index = {col: index for index, col in enumerate(header)}
- 
-            # Define the login page
-            def login():
-
-                user_name=st.text_input(label="Username")  
-                password=st.text_input("Password", type='password')
-                submitted = st.form_submit_button("Confirm") 
-
-                
-                if submitted and user_name and password:
-                    # Validate user credentials
-                    for row in data:
-                        if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
-                            st.success("Login successful")
-                            return (row[col_index['Name']], row[col_index['Register Number']])
-                    
-                    st.error("Invalid Credentials")
-                return None
-                      
-            
-            # Define the main page
-            def student_page(name, reg_num):
-                st.title("student")
-                st.write("Student Name:", name)
-                st.write("Register Number:", reg_num)
-
-            # Run the app
-            if __name__ == "__main__":
-                login_result = login()
-                if login_result:
-                    name, reg_num = login_result
-                    student_page(name, reg_num)
         
+ 
+
