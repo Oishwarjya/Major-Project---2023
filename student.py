@@ -8,8 +8,11 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
+# Use this if Shreya's Env
+#img = get_img_as_base64(r"C:\Users\Hp\Documents\SRM PQH\Major-Project---2023\image.jpg")
 
-img = get_img_as_base64(r"C:\Users\Hp\Documents\SRM PQH\Major-Project---2023\image.jpg")
+# Use this if Oishee's Env
+img = get_img_as_base64(r"C:\Users\oishe\OneDrive\Desktop\Projects\Major-Project---2023\image.jpg")
 
 page_bg_img = f"""
 <style>
