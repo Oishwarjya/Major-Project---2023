@@ -11,8 +11,11 @@ def get_img_as_base64(file):
 # Use this if Shreya's Env
 #img = get_img_as_base64(r"C:\Users\Hp\Documents\SRM PQH\Major-Project---2023\image.jpg")
 
+<<<<<<< HEAD
 # Use this if Oishee's Env
 #img = get_img_as_base64(r"C:\Users\oishe\OneDrive\Desktop\Projects\Major-Project---2023\image.jpg")
+=======
+>>>>>>> 8a5bc913f4417306393b4bbb20530f43e708bc9b
 img = get_img_as_base64("image.jpg")
 
 page_bg_img = f"""
