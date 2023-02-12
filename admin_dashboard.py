@@ -1,6 +1,7 @@
 import base64
 import streamlit as st
 import plotly.express as px
+import matplotlib.pyplot as plt
 
 df = px.data.iris()
 
@@ -39,4 +40,17 @@ right: 2rem;
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title("ADMIN DASHBOARD")
+labels = 'Resolved', 'Pending'
+sizes = [20,80]
+explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+st.pyplot(fig1)
+st.sidebar.image("srm.png", use_column_width=True)
+st.sidebar.title("INFORMATION")
+st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
+
 
