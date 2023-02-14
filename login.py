@@ -43,7 +43,8 @@ st.title("SRM PLACEMENT QUERY HANDLER")
 st.sidebar.image("srm.png", use_column_width=True)
 st.sidebar.title("Information:")
 st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
-
+if 'status' not in st.session_state:
+    st.session_state["status"]=""
 
 with st.container():
     st.header("LOGIN")
@@ -77,9 +78,13 @@ with st.container():
                     for row in data:
                         if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
                             st.success("Login successful")
+                            st.session_state["status"] = row[col_index['Name']]
+                            st.write("You have entered: ",row[col_index['Name']] )
                             return (row[col_index['Name']], row[col_index['Register Number']])
+                            
                     
                     st.error("Invalid Credentials")
+                    st.session_state.status= "Fail"
                 return None
                       
             
@@ -88,6 +93,7 @@ with st.container():
                 
                 st.write("Student Name:", name)
                 st.write("Register Number:", reg_num)
+                st.write("You have entered", st.session_state["status"])
 
             # Run the app
             if __name__ == "__main__":
