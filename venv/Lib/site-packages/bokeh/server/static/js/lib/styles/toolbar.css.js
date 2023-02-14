@@ -1,0 +1,12 @@
+export const inner = "bk-inner"
+export const hidden = "bk-hidden"
+export const logo = "bk-logo"
+export const above = "bk-above"
+export const below = "bk-below"
+export const left = "bk-left"
+export const right = "bk-right"
+export const divider = "bk-divider"
+export const tool_overflow = "bk-tool-overflow"
+export const horizontal = "bk-horizontal"
+export const vertical = "bk-vertical"
+export default `:host{--button-width:30px;--button-height:30px;--button-color:lightgray;}:host{display:flex;flex-wrap:nowrap;align-items:center;user-select:none;-webkit-user-select:none;}:host(.bk-inner){background-color:white;opacity:0.8;}:host(.bk-hidden){visibility:hidden;opacity:0;transition:visibility 0.3s linear, opacity 0.3s linear;}.bk-logo{flex-shrink:0;}:host(.bk-above),:host(.bk-below){flex-direction:row;justify-content:flex-end;}:host(.bk-above) .bk-logo,:host(.bk-below) .bk-logo{order:1;margin-left:5px;margin-right:0px;}:host(.bk-left),:host(.bk-right){flex-direction:column;justify-content:flex-start;}:host(.bk-left) .bk-logo,:host(.bk-right) .bk-logo{order:0;margin-bottom:5px;margin-top:0px;}.bk-divider{content:" ";display:inline-block;background-color:var(--button-color);}:host(.bk-above) .bk-divider,:host(.bk-below) .bk-divider{height:10px;width:1px;}:host(.bk-left) .bk-divider,:host(.bk-right) .bk-divider{height:1px;width:10px;}.bk-tool-overflow{color:gray;display:flex;align-items:center;}.bk-tool-overflow:hover{background-color:rgba(192, 192, 192, 0.15);}.bk-tool-overflow:focus,.bk-tool-overflow:focus-visible{outline:1px dotted var(--active-tool-highlight);outline-offset:-1px;}.bk-tool-overflow::-moz-focus-inner{border:0;}:host(.bk-above) .bk-tool-overflow,:host(.bk-below) .bk-tool-overflow,:host(.bk-horizontal) .bk-tool-overflow{width:calc(var(--button-width)/2);height:var(--button-height);flex-direction:row;}:host(.bk-left) .bk-tool-overflow,:host(.bk-right) .bk-tool-overflow,:host(.bk-vertical) .bk-tool-overflow{width:var(--button-width);height:calc(var(--button-height)/2);flex-direction:column;}`
