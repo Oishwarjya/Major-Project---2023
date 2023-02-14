@@ -51,4 +51,4 @@ def load_data(file):
         data = [row for row in reader]
         return header, data
 
-    header, data = load_data("student_data - Sheet1.csv")
+header, data = load_data("student_data - Sheet1.csv")

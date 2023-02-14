@@ -79,7 +79,7 @@ with st.container():
                         if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
                             st.success("Login successful")
                             st.session_state["status"] = row[col_index['Name']]
-                            st.write("You have entered: ",row[col_index['Name']] )
+                            #st.write("You have entered: ",row[col_index['Name']] )
                             return (row[col_index['Name']], row[col_index['Register Number']])
                             
                     
@@ -93,7 +93,7 @@ with st.container():
                 
                 st.write("Student Name:", name)
                 st.write("Register Number:", reg_num)
-                st.write("You have entered", st.session_state["status"])
+                #st.write("You have entered", st.session_state["status"])
 
             # Run the app
             if __name__ == "__main__":
