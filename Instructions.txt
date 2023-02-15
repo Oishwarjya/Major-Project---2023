@@ -2,3 +2,4 @@ Create Virtual env, use command - "python3 -m venv [add path to the file]/venv"
 Select Interpreter insdie the venv file, python.exe -> select interpreter after ctrl p
 Update requirements accordingly - run "pip install requirements -r" to keep versions synced
 
+"pip install matplotlib"

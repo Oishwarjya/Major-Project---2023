@@ -1,0 +1,4 @@
+export const input = "bk-input"
+export const toggle = "bk-toggle"
+export const visible = "bk-visible"
+export default `:host{--toggle-size:14px;--toggle-padding:4px;--toggle-width:calc(var(--toggle-size) + 2*var(--toggle-padding));}.bk-input{padding-right:max(var(--padding-horizontal), var(--toggle-width));}.bk-toggle{position:absolute;right:0;top:0;width:var(--toggle-width);height:100%;padding:0 var(--toggle-padding);background-color:var(--bokeh-icon-color);mask-image:var(--bokeh-icon-see-off);-webkit-mask-image:var(--bokeh-icon-see-off);mask-size:var(--toggle-size) var(--toggle-size);-webkit-mask-size:var(--toggle-size) var(--toggle-size);mask-position:center center;-webkit-mask-position:center center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;cursor:pointer;}.bk-toggle.bk-visible{mask-image:var(--bokeh-icon-see-on);-webkit-mask-image:var(--bokeh-icon-see-on);}`

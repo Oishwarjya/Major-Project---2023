@@ -1,0 +1,1 @@
+export default `legend{display:flex;gap:0.5em;padding:0 calc(var(--padding-horizontal) / 2);}fieldset{border:1px solid #ccc;}`
