@@ -40,11 +40,11 @@ right: 2rem;
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title("SRM PLACEMENT QUERY HANDLER")
-st.sidebar.image("srm.png", use_column_width=True)
-st.sidebar.title("Information:")
-st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
+#st.sidebar.image("srm.png", use_column_width=True)
+#st.sidebar.title("Information:")
+#st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
 if 'status' not in st.session_state:
-    st.session_state["status"]=""
+    st.session_state["status"]="Fail"
 
 with st.container():
     st.header("LOGIN")
