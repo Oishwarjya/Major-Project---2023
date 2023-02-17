@@ -5,7 +5,7 @@ import csv
 
 df = px.data.iris()
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -39,6 +39,7 @@ right: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
 st.title("SRM PLACEMENT QUERY HANDLER")
 st.sidebar.image("srm.png", use_column_width=True)
 st.sidebar.title("Information:")

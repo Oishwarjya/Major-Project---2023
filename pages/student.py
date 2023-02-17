@@ -1,8 +1,9 @@
 import streamlit as st 
 import base64
 import csv
+import matplotlib.pyplot as plt
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -45,6 +46,8 @@ right: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
 
 if st.session_state.status == "Fail":
     st.title("INVALID LOGIN!!")
@@ -93,3 +96,24 @@ else:
         st.write("Redirecting...")
         # store the query in a database or data structure
         # code to redirect to another page for resolving queries
+    
+    raised = 20
+    resolved = 15
+
+    st.markdown("<div style='text-align:center;color:#202A44;font-family: Cooper Black;font-size:20px;'>YOUR QUERY STATUS </div>", unsafe_allow_html=True)
+
+    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+    labels = 'Queries Raised', 'Queries Resolved'
+    sizes = [raised, resolved]
+    explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Queries Resolved')
+
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+
+    st.pyplot(fig1)
+
+if st.sidebar.button("Logout"):
+    st.session_state["status"] = None
+

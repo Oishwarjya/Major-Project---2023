@@ -1,47 +1,29 @@
-from flask import Flask, redirect, url_for
-from login import login_bp
-from student import student_bp
-import streamlit as st
-import streamlit.hashing 
+from flask import Flask, render_template, request, redirect
+import student
+import login
 
-
-@app.route('/')
-def index():
-    return redirect(url_for('login.login_page'))
-
-
-
-from streamlit.report_thread import get_report_ctx
-from streamlit.server.server import Server
-
-
-# Create a Flask app and register the blueprints
 app = Flask(__name__)
-app.register_blueprint(login_bp)
-app.register_blueprint(student_bp)
 
-# Start the Flask server
-@app.before_first_request
-def before_first_request():
-    app.server = Server.get_current()._server
+# Route for the login page
+@app.route('/')
+def login_interface():
+    return login1.login_page()
 
-# Connect to the Flask app using FlaskClient
-with st.echo(code_location='below'):
-    from streamlit.hashing import _CodeHasher
-    hasher = _CodeHasher()
-    ctx = get_report_ctx()
-    session_id = ctx.session_id
-    app_hash = hasher.to_bytes(app)
+# Route for handling the login form submission
+@app.route('/login', methods=['POST'])
+def handle_login():
+    username = request.form['username']
+    password = request.form['password']
+    if login.authenticate(username, password):
+        # Redirect to the student interface page
+        return redirect('/student1')
+    else:
+        return render_template('login.html', error=True)
 
-    with Server._get_or_create_st_session(session_id) as sess:
-        if not hasattr(sess, '_custom_session_state'):
-            setattr(sess, '_custom_session_state', {})
-        session_state = sess._custom_session_state
-        if 'flask_client' not in session_state:
-            session_state['flask_client'] = FlaskClient(app, session_id, app_hash)
+# Route for the student interface page
+@app.route('/student1')
+def student_interface():
+    return student1.student_page()
 
-    flask_client = session_state['flask_client']
-
-# Create a Streamlit app that connects to the Flask app
-with st.echo(code_location='below'):
-    st.write('Welcome')
+if __name__ == '__main__':
+    app.run(debug=True)
