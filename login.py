@@ -39,10 +39,10 @@ right: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-st.title("SRM PLACEMENT QUERY HANDLER")
-st.sidebar.image("srm.png", use_column_width=True)
-st.sidebar.title("Information:")
-st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
+#st.title("SRM PLACEMENT QUERY HANDLER")
+#st.sidebar.image("srm.png", use_column_width=True)
+#st.sidebar.title("Information:")
+#st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
 if 'status' not in st.session_state:
     st.session_state["status"]=""
 
@@ -52,7 +52,7 @@ with st.container():
         "Students, Admins and Department head logins"
     )
     with st.form("entry_form", clear_on_submit= True):
-        login_type=st.selectbox("Login Type", ("Student", "Admin", "Department"))
+        login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department"))
         user_name=st.text_input(label="Username")  
         password=st.text_input("Password", type='password')
         submitted = st.form_submit_button("Confirm") 
@@ -103,7 +103,7 @@ with st.container():
                     student(name, reg_num)
 
 
-        elif login_type=="Admin":
+        elif login_type=="Resolver":
             def load_data(file):
                 with open(file, 'r',encoding='UTF-8') as f:
                     reader = csv.reader(f)
