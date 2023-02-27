@@ -2,6 +2,9 @@ import base64
 import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
+import pandas as pd
+from st_aggrid import AgGrid
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 df = px.data.iris()
 
@@ -51,6 +54,17 @@ st.sidebar.pyplot(fig1)
 #st.sidebar.image("srm.png", use_column_width=True)
 #st.sidebar.title("INFORMATION")
 #st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
+
+# Load AgGrid data
+data = pd.read_csv('your_data.csv')
+
+# Display AgGrid table
+# Create AgGrid options with checkbox selector column
+gb = GridOptionsBuilder.from_dataframe(data)
+gb.configure_selection('multiple', use_checkbox=True)
+gridOptions=gb.build()
+AgGrid(data,gridOptions=gridOptions)
+
 
 # Define function to send email
 def send_email(student_email, response):
@@ -116,15 +130,16 @@ def main():
     email = st.text_input("Email")
     query = st.text_area("Query")
     priority = st.selectbox("Priority", ['Low', 'Medium', 'High'])
+    st.button("Update Priority")
     if st.button("Send Email"):
         query_data = save_query(name, email, query, priority)
-        st.write("Query submitted successfully!")
+        st.write("Query resolved successfully!")
         st.write(query_data)
+
 
     # Display the query management interface
     st.write("# Query Management")
-    df = pd.read_csv('query_data.csv') # replace this with code to read data from your database
-    query_management(df)
+    df = pd.read_csv('your_data.csv')
 
 if __name__ == "__main__":
     main()
