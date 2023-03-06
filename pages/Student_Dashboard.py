@@ -81,9 +81,9 @@ else:
     question = st.selectbox("Select Question", faq[category])
 
     if question == "Did not receive the test link?":
-        st.write("A1")
+        st.write("Check personal & SRM ID and spam folder, if not working please email:help@srmist.edu.in")
     elif question == "Test link provided is no more active?":
-        st.write("A2")
+        st.write("Contact helpline number: 1234")
     elif question =="Got logged out of the test?":
         st.write("A3")
     elif question =="Did not receive the interview link?":
