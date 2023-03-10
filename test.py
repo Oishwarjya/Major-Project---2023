@@ -16,8 +16,10 @@ data = json.load(f)
 # list
 #for i in data:
 #    print(i)
-for i in data['resolvers']:
-    print(i["username"])
+for i in data['resolver']:
+    if i["name"]=="Veena":
+        print(i["empid"])
+        print(i["email"])
   
 # Closing file
 f.close()
