@@ -2,6 +2,7 @@ import base64
 import streamlit as st
 import plotly.express as px
 import csv
+import json
 
 df = px.data.iris()
 
@@ -11,6 +12,9 @@ def get_img_as_base64(file):
         data = f.read()
     return base64.b64encode(data).decode()
 
+#Connecting to db 
+f = open('DB_combined.json')
+data = json.load(f)
 
 img = get_img_as_base64("image.jpg")
 
@@ -53,35 +57,20 @@ with st.container():
     )
     with st.form("entry_form", clear_on_submit= True):
         login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department"))
-        user_name=st.text_input(label="Username")  
+        unique_id=st.text_input(label="UniqueID")  
         password=st.text_input("Password", type='password')
-        submitted = st.form_submit_button("Confirm") 
+        submitted = st.form_submit_button("Confirm")
 
         if login_type=="Student":
-            def load_data(file):
-                with open(file, 'r',encoding='UTF-8') as f:
-                    reader = csv.reader(f)
-                    header = next(reader)
-                    data = [row for row in reader]
-                return header, data
-
-            header, data = load_data("student_data - Sheet1.csv")
-
-            # Create a dictionary mapping column names to column index
-            col_index = {col: index for index, col in enumerate(header)}
- 
-            # Define the login page
+            
             def login():
-
-                if submitted and user_name and password:
+                if submitted and unique_id and password:
                     # Validate user credentials
-                    for row in data:
-                        if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
+                    for i in data['student']:
+                        if i["regno"]==unique_id and i["dob"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = row[col_index['Name']]
-                            #st.write("You have entered: ",row[col_index['Name']] )
-                            return (row[col_index['Name']], row[col_index['Register Number']])
-                            
+                            st.session_state["status"] = i["username"]
+                            return(i["username"], i["regno"])  
                     
                     st.error("Invalid Credentials")
                     st.session_state.status= "Fail"
@@ -104,73 +93,47 @@ with st.container():
 
 
         elif login_type=="Resolver":
-            def load_data(file):
-                with open(file, 'r',encoding='UTF-8') as f:
-                    reader = csv.reader(f)
-                    header = next(reader)
-                    data = [row for row in reader]
-                return header, data
-
-            header, data = load_data("admin_data.csv")
-
-            # Create a dictionary mapping column names to column index
-            col_index = {col: index for index, col in enumerate(header)}
- 
             # Define the login page
             def login():
 
-                if submitted and user_name and password:
+                if submitted and unique_id and password:
                     # Validate user credentials
-                    for row in data:
-                        if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
+                    for i in data['resolver']:
+                        if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = row[col_index['Name']]
-                            #st.write("You have entered: ",row[col_index['Name']] )
-                            return (row[col_index['Name']], row[col_index['Employee Number']])
-                            
+                            st.session_state["status"] = i["name"]
+                            return(i["name"], i["empid"])  
                     
                     st.error("Invalid Credentials")
                     st.session_state.status= "Fail"
+                            
                 return None
                       
             
             # Define the main page
-            def admin(name, reg_num):
+            def resolver(name, empid):
                 
                 st.write("Employee Name:", name)
-                st.write("Employee Number:", reg_num)
+                st.write("Employee Number:", empid)
                 #st.write("You have entered", st.session_state["status"])
 
             # Run the app
             if __name__ == "__main__":
                 login_result = login()
                 if login_result:
-                    name, reg_num = login_result
-                    admin(name, reg_num)
+                    name, empid= login_result
+                    resolver(name, empid)
 
         elif login_type=="Department":
-            def load_data(file):
-                with open(file, 'r',encoding='UTF-8') as f:
-                    reader = csv.reader(f)
-                    header = next(reader)
-                    data = [row for row in reader]
-                return header, data
-
-            header, data = load_data("department_data.csv")
-
-            # Create a dictionary mapping column names to column index
-            col_index = {col: index for index, col in enumerate(header)}
-             # Define the login page
             def login():
 
-                if submitted and user_name and password:
+                if submitted and unique_id and password:
                     # Validate user credentials
-                    for row in data:
-                        if row[col_index['Name']] == user_name and row[col_index['Date of Birth']] == password:
+                    for i in data['department']:
+                        if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = row[col_index['Name']]
-                            #st.write("You have entered: ",row[col_index['Name']] )
-                            return (row[col_index['Name']], row[col_index['Employee Number']])
+                            st.session_state["status"] = i["name"]
+                            return(i["name"], i["empid"])
                             
                     
                     st.error("Invalid Credentials")
@@ -179,21 +142,18 @@ with st.container():
                       
             
             # Define the main page
-            def admin(name, reg_num):
+            def dept(name, empid):
                 
                 st.write("Employee Name:", name)
-                st.write("Employee Number:", reg_num)
+                st.write("Employee Number:", empid)
                 #st.write("You have entered", st.session_state["status"])
 
             # Run the app
             if __name__ == "__main__":
                 login_result = login()
                 if login_result:
-                    name, reg_num = login_result
-                    admin(name, reg_num)
-
- 
-            
+                    name, empid = login_result
+                    dept(name,empid)
 
                 
             
