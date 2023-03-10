@@ -2,6 +2,7 @@ import streamlit as st
 import base64
 import csv
 import matplotlib.pyplot as plt
+import sqlite3
 
 @st.cache_data
 def get_img_as_base64(file):
@@ -89,13 +90,38 @@ else:
     elif question =="Did not receive the interview link?":
         st.write("A4")
 
+   
+    any_other_query = st.radio("Any other query?", ["Yes", "No"], key="query")
 
+    # Define custom CSS style to increase font size
+    style = """
+        <style>
+        .streamlit-radio label {
+            font-size: 20px;
+        }
+        </style>
+    """
 
-    query = st.text_input("Any other Query ? Enter it in the box below:")
-    if st.button("Submit"):
-        st.write("Redirecting...")
-        # store the query in a database or data structure
-        # code to redirect to another page for resolving queries
+    # Render custom CSS
+    st.markdown(style, unsafe_allow_html=True)
+    
+
+    if any_other_query == "Yes":
+    # Display dropdown list of companies and date input fields
+        companies = ["Company A", "Company B", "Company C"]
+        company = st.selectbox("Select company", companies)
+        date = st.date_input("Select date")
+        text = st.text_area("Enter your query")
+
+    # Submit button
+        if st.button("Submit"):
+            # Save query data to database
+            conn = sqlite3.connect('queries.db')
+            c = conn.cursor()
+            c.execute('INSERT INTO queries VALUES (?, ?, ?)', (company, date, text))
+            conn.commit()
+            st.success("Query submitted successfully!")
+            
     
     raised = 20
     resolved = 15

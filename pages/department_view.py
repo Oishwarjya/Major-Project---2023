@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 df = px.data.iris()
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -41,34 +41,36 @@ right: 2rem;
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title("DEPARTMENT LEVEL DASHBOARD")
 
-col1, col2, col3 = st.columns(3)
+import matplotlib.pyplot as plt
+import pandas as pd
 
-with col1:
-   st.write("Computing Technologies")
-   labels = 'Resolved', 'Pending'
-   sizes = [20,80]
-   explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-   fig1, ax1 = plt.subplots()
-   ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-   ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-   st.pyplot(fig1)
+# Retrieve data from the faculty dashboard (replace with your actual code)
+resolved_data = {'Department 1': 50, 'Department 2': 70, 'Department 3': 40}
+pending_data = {'Department 1': 20, 'Department 2': 30, 'Department 3': 50}
 
-with col2:
-   st.write("Networking and Communications")
-   labels = 'Resolved', 'Pending'
-   sizes = [40,60]
-   explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-   fig1, ax1 = plt.subplots()
-   ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-   ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-   st.pyplot(fig1)
-   
-with col3:
-   st.write("Computational Intelligence")
-   labels = 'Resolved', 'Pending'
-   sizes = [10,90]
-   explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-   fig1, ax1 = plt.subplots()
-   ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-   ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-   st.pyplot(fig1)
+# Create a Pandas DataFrame from the data
+resolved_df = pd.DataFrame.from_dict(resolved_data, orient='index', columns=['Resolved Queries'])
+pending_df = pd.DataFrame.from_dict(pending_data, orient='index', columns=['Pending Queries'])
+df = resolved_df.join(pending_df)
+
+# Create a grouped bar chart
+fig, ax = plt.subplots()
+bar_width = 0.35
+opacity = 0.8
+
+# Plot the bars for resolved queries
+rects1 = ax.bar(df.index.astype(str) + str(bar_width), df['Resolved Queries'], bar_width, alpha=opacity, color='b', label='Resolved Queries')
+
+# Plot the bars for pending queries
+rects2 = ax.bar(df.index.astype(str) + str(bar_width), df['Pending Queries'], bar_width, alpha=opacity, color='r', label='Pending Queries')
+
+# Add labels and legend
+ax.set_xlabel('Department')
+ax.set_ylabel('Number of Queries')
+ax.set_title('Queries Resolved vs. Pending by Department')
+ax.set_xticks(pd.RangeIndex(len(df)) + (bar_width / 2))
+ax.set_xticklabels(df.index)
+ax.legend()
+
+# Display the chart
+plt.show()

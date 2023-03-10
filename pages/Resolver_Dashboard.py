@@ -85,6 +85,13 @@ def send_email(student_email, response):
 
 # Define function to save query to a database
 def save_query(name, email, query, priority):
+    # Retrieve query data from database
+    conn = sqlite3.connect('queries.db')
+    df = pd.read_sql_query('SELECT * FROM queries', conn)
+
+# Display query data in a table format
+st.write("## Faculty Query Dashboard")
+st.dataframe(df)
     # This is where you would insert code to save the query to a database
     # For example, you could use SQLite or PostgreSQL to create a database
 
