@@ -97,13 +97,13 @@ st.dataframe(df)
 
     # Create a dictionary to hold the query data
     query_data = {'Name': name,
-                  'Email': email,
-                  'Query': query,
-                  'Priority': priority}
+                    'Email': email,
+                    'Query': query,
+                    'Priority': priority}
 
     # Append the query data to a Pandas DataFrame
     df = pd.DataFrame(query_data, index=[0])
-    return df
+return df
 
 # Define function to display the query management interface
 def query_management(df):
