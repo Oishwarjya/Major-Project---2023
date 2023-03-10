@@ -1,1 +1,13 @@
+TO call items from the json file:
 
+entire thing:
+for i in data:
+    print(i)
+
+Only resolvers:
+for i in data['resolvers']:
+    print(i)
+
+Item inside resolvers:
+for i in data['resolvers']:
+    print(i["username"])

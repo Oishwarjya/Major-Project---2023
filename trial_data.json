@@ -1,0 +1,12 @@
+{
+    "resolvers":[
+      {"username":"John", "employeeID":"Doe", "dob":"22/11/2001", "dept":"CSE", "reg_start":123, "reg_end":125},
+      {"username":"Rohn", "employeeID":"Doe", "dob":"22/11/2001", "dept":"CSE", "reg_start":123, "reg_end":125}
+    ],
+    "student":[
+        {"username":"Oishee", "regno":"RA1911003010688", "dob":"22/11/2001", "dept":"CSE",
+        "queries":[{"q1":"sol1"},{"q2":"sol2"},{"q3":"sol3"}]},
+        {"username":"Shreya", "regno":"RA1911003010629", "dob":"22/11/2001", "dept":"CSE",
+        "queries":[{"q1s":"sol1s"},{"q2s":"sol2s"},{"q3":"sol3s"}]}
+      ]
+}
