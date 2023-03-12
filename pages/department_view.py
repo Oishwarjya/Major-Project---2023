@@ -42,7 +42,12 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 
 if st.session_state.status == "Fail":
     st.title("INVALID LOGIN!!")
+
+elif st.session_state['Type']!= "Department":
+    st.title("INVALID LOGIN!!")
+
 else:
+    st.write("Department Head ID: ", st.session_state["status"])
     st.title("DEPARTMENT LEVEL DASHBOARD")
     col1, col2, col3 = st.columns(3)
     with col1:

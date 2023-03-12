@@ -40,11 +40,15 @@ right: 2rem;
 }}
 </style>
 """
+
 if st.session_state.status == "Fail":
     st.title("INVALID LOGIN!!")
 
+elif st.session_state['Type']!= "Resolver":
+    st.title("INVALID LOGIN!!")
+
 else:
-        
+    st.write("Resolver ID: ", st.session_state["status"])   
     st.markdown(page_bg_img, unsafe_allow_html=True)
     labels = 'Resolved', 'Pending'
     sizes = [20,80]
