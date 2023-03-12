@@ -47,6 +47,8 @@ st.title("SRM PLACEMENT QUERY HANDLER")
 st.sidebar.image("srm.png", use_column_width=True)
 st.sidebar.title("Information:")
 st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
+
+st.session_state["Type"] = "Nil"
 if 'status' not in st.session_state:
     st.session_state["status"]="Fail"
 
@@ -71,7 +73,8 @@ with st.container():
                     for i in data['student']:
                         if i["regno"]==unique_id and i["dob"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["username"]
+                            st.session_state["status"] = i["regno"]
+                            st.session_state["Type"] = "Student"
                             return(i["username"], i["regno"])  
                     
                     st.error("Invalid Credentials")
@@ -103,7 +106,8 @@ with st.container():
                     for i in data['resolver']:
                         if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["name"]
+                            st.session_state["status"] = i["empid"]
+                            st.session_state["Type"] = "Resolver"
                             return(i["name"], i["empid"])  
                     
                     st.error("Invalid Credentials")
@@ -134,7 +138,8 @@ with st.container():
                     for i in data['department']:
                         if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["name"]
+                            st.session_state["status"] = i["empid"]
+                            st.session_state["Type"] = "Department"
                             return(i["name"], i["empid"])
                             
                     
