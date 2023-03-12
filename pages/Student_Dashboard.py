@@ -3,22 +3,17 @@ import base64
 import csv
 import matplotlib.pyplot as plt
 import sqlite3
+import json
+
+#Connecting to db 
+f = open('DB_combined.json')
+data = json.load(f)
 
 @st.experimental_memo
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
-
-def load_data(file):
-    with open(file, 'r',encoding='UTF-8') as f:
-        reader = csv.reader(f)
-        header = next(reader)
-        data = [row for row in reader]
-        return header, data
-
-header, data = load_data("student_data - Sheet1.csv")
-col_index = {col: index for index, col in enumerate(header)}
 
 img = get_img_as_base64("image.jpg")
 
@@ -48,7 +43,7 @@ right: 2rem;
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
+print(st.session_state)
 
 if st.session_state.status == "Fail":
     st.title("INVALID LOGIN!!")
@@ -60,9 +55,9 @@ else:
     #st.markdown("<div style='display:flex; justify-content:space-between;'><p style='text-align:left;font-size:20px;'> Student Name: </p><p style='text-align:right;font-size:20px;'> Registration Number: </p></div>",unsafe_allow_html=True)
     #st.write("Student Name: ", st.session_state["status"])
     st.write("Student Name: ", st.session_state["status"])
-    for row in data:
-        if st.session_state["status"] == row[col_index['Name']]:
-            st.write("Registration Number: ", row[col_index['Register Number']])
+    for i in data['student']:
+        if st.session_state["status"] == i['username']:
+            st.write("Registration Number: ", i['regno'])
     st.markdown("<div style='text-align:center;color:#202A44;font-family: Cooper Black;font-size:23px;'>RAISE YOUR QUERY </div>", unsafe_allow_html=True)
 
 
@@ -140,5 +135,5 @@ else:
 
     st.pyplot(fig1)
 
-if st.sidebar.button("Logout"):
-    st.session_state["status"] = None
+#if st.sidebar.button("Logout"):
+#    st.session_state["status"] = None
