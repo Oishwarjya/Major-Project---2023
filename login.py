@@ -61,6 +61,8 @@ with st.container():
         password=st.text_input("Password", type='password')
         submitted = st.form_submit_button("Confirm")
 
+        st.session_state.status= "Fail"
+        
         if login_type=="Student":
             
             def login():
