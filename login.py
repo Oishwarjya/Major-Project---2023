@@ -49,6 +49,7 @@ st.sidebar.title("Information:")
 st.sidebar.markdown("This website is made to enable easier query and resolution for students ,specific to campus placements.")
 if 'status' not in st.session_state:
     st.session_state["status"]="Fail"
+    st.session_state["Type"]=""
 
 with st.container():
     st.header("LOGIN")
@@ -72,6 +73,7 @@ with st.container():
                         if i["regno"]==unique_id and i["dob"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["username"]
+                            st.session_state["Type"]="Student"
                             return(i["username"], i["regno"])  
                     
                     st.error("Invalid Credentials")
@@ -104,6 +106,7 @@ with st.container():
                         if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
+                            st.session_state["Type"]="Revolver"
                             return(i["name"], i["empid"])  
                     
                     st.error("Invalid Credentials")
@@ -135,6 +138,7 @@ with st.container():
                         if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
+                            st.session_state["Type"]="Department"
                             return(i["name"], i["empid"])
                             
                     
@@ -155,7 +159,4 @@ with st.container():
                 login_result = login()
                 if login_result:
                     name, empid = login_result
-                    dept(name,empid)
-
-                
-            
+                    dept(name,empid)     
