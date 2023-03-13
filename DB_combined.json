@@ -1,6 +1,6 @@
 {
     "resolver":[
-      {"empid":"12345", "name":"Veena", "dept":"CSE","section":"A1-α1", "email":"ob7029@srmist.edu.in", "contactno":"9521887134" }      
+      {"empid":"12345", "name":"Veena", "dept":"CSE","section":"A1-α", "email":"ob7029@srmist.edu.in", "contactno":"9521887134" }      
     ],
     "student":[
         {"username":"Oishee", "regno":"RA1911003010688", "dob":"22/11/2001", "dept":"CSE",
