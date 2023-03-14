@@ -55,7 +55,7 @@ else:
     st.markdown("<h1 style='color:#202A44;font-family: Cooper Black;font-size:30px;'>HAVE A PLACEMENT RELATED QUERY ? RESOLVE IT WITH SRM PQH !</h1>", unsafe_allow_html=True)  
     #student details
     #st.markdown("<div style='display:flex; justify-content:space-between;'><p style='text-align:left;font-size:20px;'> Student Name: </p><p style='text-align:right;font-size:20px;'> Registration Number: </p></div>",unsafe_allow_html=True)
-    st.write("Student ID: ", st.session_state["status"])
+    st.write("Student Name: ", st.session_state["status"])
     for i in data['student']:
         if st.session_state["status"] == i['regno']:
             st.write("Student Number: ", i['username'])

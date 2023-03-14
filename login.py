@@ -13,8 +13,8 @@ def get_img_as_base64(file):
     return base64.b64encode(data).decode()
 
 #Connecting to db 
-f = open('DB_combined.json')
-data = json.load(f)
+#f = open('db_resolver.json')
+#data = json.load(f)
 
 img = get_img_as_base64("image.jpg")
 
@@ -67,6 +67,8 @@ with st.container():
         if login_type=="Student":
             
             def login():
+                f = open('db_student.json')
+                data = json.load(f)
                 if submitted and unique_id and password:
                     # Validate user credentials
                     for i in data['student']:
@@ -78,6 +80,7 @@ with st.container():
                     
                     st.error("Invalid Credentials")
                     st.session_state.status= "Fail"
+                    f.close()
                 return None
                       
             
@@ -99,11 +102,12 @@ with st.container():
         elif login_type=="Resolver":
             # Define the login page
             def login():
-
+                f = open('db_resolver.json')
+                data = json.load(f)
                 if submitted and unique_id and password:
                     # Validate user credentials
                     for i in data['resolver']:
-                        if i["empid"]==unique_id and i["name"]==password:
+                        if i["empid"]==unique_id and i["email"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
                             st.session_state["Type"]="Revolver"
@@ -111,7 +115,7 @@ with st.container():
                     
                     st.error("Invalid Credentials")
                     st.session_state.status= "Fail"
-                            
+                f.close()           
                 return None
                       
             
@@ -134,6 +138,8 @@ with st.container():
 
                 if submitted and unique_id and password:
                     # Validate user credentials
+                    f = open('DB_combined.json')
+                    data = json.load(f)
                     for i in data['department']:
                         if i["empid"]==unique_id and i["name"]==password:
                             st.success("Login successful")
@@ -144,6 +150,7 @@ with st.container():
                     
                     st.error("Invalid Credentials")
                     st.session_state.status= "Fail"
+                    f.close()
                 return None
                       
             
