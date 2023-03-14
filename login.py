@@ -102,7 +102,7 @@ with st.container():
         elif login_type=="Resolver":
             # Define the login page
             def login():
-                f = open('db_resolver.json')
+                f = open('DB_combined.json')
                 data = json.load(f)
                 if submitted and unique_id and password:
                     # Validate user credentials
@@ -110,11 +110,11 @@ with st.container():
                         if i["empid"]==unique_id and i["email"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
-                            st.session_state["Type"]="Revolver"
-                            return(i["name"], i["empid"])  
+                            st.session_state["Type"]="Resolver"
+                            return(i["name"], i["empid"]) 
                     
-                    st.error("Invalid Credentials")
-                    st.session_state.status= "Fail"
+                st.error("Invalid Credentials")
+                st.session_state.status= "Fail"
                 f.close()           
                 return None
                       

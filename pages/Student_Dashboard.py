@@ -102,22 +102,28 @@ else:
     st.markdown(style, unsafe_allow_html=True)
     
 
-    if any_other_query == "Yes":
-    # Display dropdown list of companies and date input fields
-        companies = ["Company A", "Company B", "Company C"]
-        company = st.selectbox("Select company", companies)
-        date = st.date_input("Select date")
-        text = st.text_area("Enter your query")
+    # Connect to database
+    conn = sqlite3.connect('queries.db')
+    c = conn.cursor()
 
-    # Submit button
-        if st.button("Submit"):
-            # Save query data to database
-            conn = sqlite3.connect('queries.db')
-            c = conn.cursor()
-            c.execute('INSERT INTO queries VALUES (?, ?, ?)', (company, date, text))
-            conn.commit()
-            st.success("Query submitted successfully!")
-            
+    # Create table if it doesn't exist
+    c.execute('''CREATE TABLE IF NOT EXISTS queries
+                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT)''')
+
+    # Display input fields and submit button
+    companies = ["Company A", "Company B", "Company C"]
+    student_name= st.text_input("Enter your name")
+    email_id= st.text_input("Enter your email id")
+    company= st.selectbox("Select company", companies)
+    date= st.date_input("Select date")
+    query= st.text_area("Enter your query")
+
+    if st.button("Submit"):
+        # Save query data to database
+        c.execute('INSERT INTO queries (student_name, email_id, company, date, query) VALUES (?, ?, ?, ?, ?)', (student_name, email_id, company, date, query))
+        conn.commit()
+        st.success("Query submitted successfully!")
+                
     
     raised = 20
     resolved = 15
@@ -135,6 +141,3 @@ else:
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
 
     st.pyplot(fig1)
-
-#if st.sidebar.button("Logout"):
-#    st.session_state["status"] = None
