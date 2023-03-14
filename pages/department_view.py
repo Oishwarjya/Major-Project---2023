@@ -2,6 +2,7 @@ import base64
 import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
+import pandas as pd
 
 df = px.data.iris()
 
@@ -49,33 +50,26 @@ elif st.session_state['Type']!= "Department":
 else:
     st.write("Department Head ID: ", st.session_state["status"])
     st.title("DEPARTMENT LEVEL DASHBOARD")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-         st.write("Computing Technologies")
-         labels = 'Resolved', 'Pending'
-         sizes = [20,80]
-         explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-         fig1, ax1 = plt.subplots()
-         ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-         st.pyplot(fig1)
+    section_names = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1','G1','H1','I1','J1','K1','L1','M1','N1','O1']
+    resolved = [10, 8, 12, 9, 14, 11, 7, 15, 12, 13, 8, 10, 11, 9, 7]
+    pending = [5, 4, 6, 7, 2, 5, 9, 1, 4, 3, 8, 6, 5, 7, 9]
 
-    with col2:
-         st.write("Networking and Communications")
-         labels = 'Resolved', 'Pending'
-         sizes = [40,60]
-         explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-         fig1, ax1 = plt.subplots()
-         ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-         st.pyplot(fig1)
+    # Set up the plot
+    fig, ax = plt.subplots(figsize=(12, 8))
+    ax.set_title('Queries by section')
 
-    with col3:
-         st.write("Computational Intelligence")
-         labels = 'Resolved', 'Pending'
-         sizes = [10,90]
-         explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-         fig1, ax1 = plt.subplots()
-         ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',shadow=True, startangle=90)
-         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-         st.pyplot(fig1)
+    # Plot the bars side by side
+    bar_width = 0.4
+    bar_pos = list(range(len(section_names)))
+    ax.bar(bar_pos, resolved, width=bar_width, label='Resolved')
+    ax.bar([p + bar_width for p in bar_pos], pending, width=bar_width, label='Pending')
+
+    # Set the x-axis labels
+    ax.set_xticks([p + bar_width / 2 for p in bar_pos])
+    ax.set_xticklabels(section_names, rotation=45, ha='right')
+
+    # Set the legend
+    ax.legend()
+
+    # Show the plot
+    st.pyplot(fig)

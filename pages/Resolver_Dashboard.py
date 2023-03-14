@@ -89,7 +89,7 @@ else:
     # Display form to send email
     if data:
         st.write("Send email to student to rectify query")
-        from_email = st.text_input("From", "srmpqh3@gmail.com")
+        from_email = st.text_input("From", "srmpqh@gmail.com")
         to = st.text_input("To", selected_data[1])
         subject = st.text_input("Subject", selected_data[4])
         message = st.text_area("Message")
