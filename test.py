@@ -21,6 +21,8 @@ def send_email_notification(receiver, regno, message):
     The following query was submitted by: <Name> <Reg No>
     message: message
     Find the query resolution on the web app.
+    resolver name:
+    emailid:
     '''
 
     #sending the mail by specifying the from and to address and the message 
