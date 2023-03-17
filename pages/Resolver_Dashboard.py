@@ -93,13 +93,14 @@ else:
         to = st.text_input("To", selected_data[1])
         subject = st.text_input("Subject", selected_data[4])
         message = st.text_area("Message")
+        final_body = t=f"Hello {selected_data[0]}, \n\nYour query: {selected_data[4]} -----> has been resolved as follows:\n {message} \n\nFor any further queries please reach out to your query resolver. \n\nResolver name: \nResolver mail id:"
         if st.button("Send Email"):
             # Create email message
             msg = MIMEMultipart()
             msg['From'] = from_email
             msg['To'] = to
             msg['Subject'] = subject
-            msg.attach(MIMEText(message, 'plain'))
+            msg.attach(MIMEText(final_body, 'plain'))
 
             # Send email
             server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with SMTP server and port

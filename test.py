@@ -15,7 +15,7 @@ def send_email_notification(receiver, regno, message):
 
     smtp_server.login(sender_add,password) #logging into out email id
 
-    msg_to_be_sent ='''
+    msg_to_be_sent =f'''
     Hello <Name>!
 
     The following query was submitted by: <Name> <Reg No>
