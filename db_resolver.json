@@ -1,7 +1,7 @@
 {
     "resolver": [
       {
-        "empid": 102939,
+        "empid": "102939",
         "name": "Dr.Vidhya S",
         "dept": "Computing Technologies ",
         "section": "A1-α",
@@ -9,7 +9,7 @@
         "contactno": 9444069002
       },
       {
-        "empid": 102064,
+        "empid": "102064",
         "name": "Mrs. Nithyakani P",
         "dept": "Computing Technologies ",
         "section": "A1-β",

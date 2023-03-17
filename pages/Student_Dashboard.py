@@ -6,7 +6,7 @@ import sqlite3
 import json
 
 #Connecting to db 
-f = open('DB_combined.json')
+f = open('db_student.json')
 data = json.load(f)
 
 @st.experimental_memo
@@ -108,7 +108,7 @@ else:
 
     # Create table if it doesn't exist
     c.execute('''CREATE TABLE IF NOT EXISTS queries
-                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT)''')
+                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT, status TEXT,section TEXT)''')
 
     # Display input fields and submit button
     companies = ["Company A", "Company B", "Company C"]
@@ -117,10 +117,12 @@ else:
     company= st.selectbox("Select company", companies)
     date= st.date_input("Select date")
     query= st.text_area("Enter your query")
+    sections=["A1-α","A1-β","B1-α","B1-β","C1-α","C1-β","D1-α","D1-β","E1-α","E1-β","F1-α","F1-","G1-α","G1-β","H1-α","H1-β","I1-α","I1-β","J1-α","J1-β","K1-α","K1-β","L1-α","L1-β","M1-α","M1-β","N1-α","N1-β"]
+    section=st.selectbox("Select you section",sections)
 
     if st.button("Submit"):
         # Save query data to database
-        c.execute('INSERT INTO queries (student_name, email_id, company, date, query) VALUES (?, ?, ?, ?, ?)', (student_name, email_id, company, date, query))
+        c.execute('INSERT INTO queries (student_name, email_id, company, date, query, status, section) VALUES (?, ?, ?, ?, ?, ?, ?)', (student_name, email_id, company, date, query, "Unresolved", section))
         conn.commit()
         st.success("Query submitted successfully!")
                 

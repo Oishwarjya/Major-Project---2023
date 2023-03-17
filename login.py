@@ -50,6 +50,7 @@ st.sidebar.markdown("This website is made to enable easier query and resolution 
 if 'status' not in st.session_state:
     st.session_state["status"]="Fail"
     st.session_state["Type"]=""
+    st.session_state["Section"]=""
 
 with st.container():
     st.header("LOGIN")
@@ -102,15 +103,16 @@ with st.container():
         elif login_type=="Resolver":
             # Define the login page
             def login():
-                f = open('DB_combined.json')
+                f = open('db_resolver.json')
                 data = json.load(f)
                 if submitted and unique_id and password:
                     # Validate user credentials
                     for i in data['resolver']:
                         if i["empid"]==unique_id and i["email"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["name"]
+                            st.session_state["status"] = i["empid"]
                             st.session_state["Type"]="Resolver"
+                            st.session_state["Section"]=i["section"]
                             return(i["name"], i["empid"]) 
                     
                 st.error("Invalid Credentials")

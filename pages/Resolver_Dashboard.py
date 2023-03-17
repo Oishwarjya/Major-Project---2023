@@ -66,6 +66,12 @@ else:
     c.execute('SELECT * FROM queries')
     data = c.fetchall()
 
+    # Display table with all entries from database
+    if data:
+        st.write("Below are the queries that need to be resolved")
+        for row in data:
+            st.write(row)
+    
     # Display data in a table format with an option to select a particular row
     if data:
         selected_row = st.selectbox("Select the query you want to resolve", range(len(data)))
@@ -79,12 +85,6 @@ else:
         subject = selected_data[4]
     else:
         st.write("No data found in database.")
-
-    # Display table with all entries from database
-    if data:
-        st.write("Below are the queries that need to be resolved")
-        for row in data:
-            st.write(row)
 
     # Display form to send email
     if data:
