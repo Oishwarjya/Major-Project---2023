@@ -111,7 +111,8 @@ else:
                 (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT, status TEXT,section TEXT)''')
 
     # Display input fields and submit button
-    companies = ["Company A", "Company B", "Company C"]
+    companies = ["Adobe", "Affinsys AI", "Afford Medical Technologies","Agumentik Software","Aidash","Alstom","Amadeus","Amazon WOW"]
+
     student_name= st.text_input("Enter your name")
     email_id= st.text_input("Enter your email id")
     company= st.selectbox("Select company", companies)

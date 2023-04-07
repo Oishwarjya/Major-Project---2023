@@ -109,5 +109,7 @@ else:
             server.sendmail(msg['From'], msg['To'], msg.as_string())
             server.quit()
             st.success("Email sent successfully!")
+            #Update status as Resolved after mail is sent
+
 
 

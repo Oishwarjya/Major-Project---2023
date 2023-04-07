@@ -1,0 +1,39 @@
+{
+    "resolver": [
+        {
+            "__EMPTY_1": "Dr. Revathi Venkatraman",
+            "__EMPTY_2": "Chairperson",
+            "__EMPTY_4": "chair.sco.cet.ktr@srmist.edu.in",
+            "__EMPTY_5": "SCO",
+            "__EMPTY_6": "SCO"
+        },
+        {
+            "__EMPTY_1": "Dr. M. Pushpalatha",
+            "__EMPTY_2": "HOD - CTECH",
+            "__EMPTY_4": "hod.ctech.ktr@srmist.edu.in",
+            "__EMPTY_5": "CTECH",
+            "__EMPTY_6": "SCO"
+        },
+        {
+            "__EMPTY_1": "Dr. Annapurani",
+            "__EMPTY_2": "HOD-NWC",
+            "__EMPTY_4": "hod.nwc.ktr@srmist.edu.in",
+            "__EMPTY_5": "NWC",
+            "__EMPTY_6": "SCO"
+        },
+        {
+            "__EMPTY_1": "Dr. Lakshmi",
+            "__EMPTY_2": "HOD-DSBS",
+            "__EMPTY_4": "hod.dsbs.ktr@srmist.edu.in",
+            "__EMPTY_5": "DSBS",
+            "__EMPTY_6": "SCO"
+        },
+        {
+            "__EMPTY_1": "Dr. Annie Uthra",
+            "__EMPTY_2": "HOD-CINTEL",
+            "__EMPTY_4": "hod.cintel.ktr@srmist.edu.in",
+            "__EMPTY_5": "CINTEL",
+            "__EMPTY_6": "SCO"
+        }
+    ]
+}

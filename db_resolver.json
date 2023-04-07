@@ -17,7 +17,7 @@
         "contactno": 9790626371
       },
       {
-        "empid": 100487,
+        "empid": "100487",
         "name": "Dr T K Sivakumar ",
         "dept": "Computing Technologies ",
         "section": "B1-α",
@@ -25,7 +25,7 @@
         "contactno": 9444202864
       },
       {
-        "empid": 102670,
+        "empid": "102670",
         "name": "Dr. Rajkamal ",
         "dept": "Computing Technologies ",
         "section": "B1-β",
@@ -33,7 +33,7 @@
         "contactno": 9176689008
       },
       {
-        "empid": 102090,
+        "empid": "102090",
         "name": "Dr.M.Uma Devi",
         "dept": "Computing Technologies ",
         "section": "C1-α",
