@@ -140,10 +140,10 @@ with st.container():
 
                 if submitted and unique_id and password:
                     # Validate user credentials
-                    f = open('DB_combined.json')
+                    f = open('db_department.json')
                     data = json.load(f)
                     for i in data['department']:
-                        if i["empid"]==unique_id and i["name"]==password:
+                        if i["email"]==unique_id and i["name"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
                             st.session_state["Type"]="Department"
