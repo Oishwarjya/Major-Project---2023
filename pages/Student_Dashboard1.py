@@ -7,8 +7,8 @@ import json
 import pandas as pd
 
 #Connecting to db 
-f = open('DB_combined.json')
-data = json.load(f)
+f = open('db_student.json')
+students= json.load(f)
 
 @st.cache_data
 def get_img_as_base64(file):
@@ -57,7 +57,14 @@ else:
     #student details
     #st.markdown("<div style='display:flex; justify-content:space-between;'><p style='text-align:left;font-size:20px;'> Student Name: </p><p style='text-align:right;font-size:20px;'> Registration Number: </p></div>",unsafe_allow_html=True)
     st.write("Student Name: ", st.session_state["status"])
-    for i in data['student']:
+
+    # Define the function to load student data from the JSON file
+    def load_students():
+        with open('db_student.json', 'r') as f:
+            students = json.load(f)
+        return students
+    
+    for i in students['student']:
         if st.session_state["status"] == i['regno']:
             st.write("Student Number: ", i['username'])
     st.markdown("<div style='text-align:center;color:#202A44;font-family: Cooper Black;font-size:23px;'>RAISE YOUR QUERY </div>", unsafe_allow_html=True)
@@ -90,23 +97,7 @@ else:
    
     any_other_query = st.radio("Any other query?", ["Yes", "No"], key="query")
 
-    # Define custom CSS style to increase font size
-    style = """
-        <style>
-        .streamlit-radio label {
-            font-size: 20px;
-        }
-        </style>
-    """
 
-    # Render custom CSS
-    st.markdown(style, unsafe_allow_html=True)
-    
-    # Define the function to load student data from the JSON file
-    def load_students():
-        with open('db_student.json', 'r') as f:
-            students = json.load(f)
-        return students
 
     # Define the function to save student data to the JSON file
     def save_students(students):
@@ -129,10 +120,12 @@ else:
     df = pd.read_excel('Company Database.xlsx')
     companies = list(df['Company Name'])
 
+    departments=["Computing Technologies","Networking and Communications","Computational Intelligence","Data Science and Business Systems"]
 
     # Display the input fields
     student_name = st.text_input("Enter your name")
     email_id = st.text_input("Enter your email id")
+    department=st.selectbox("Select your department", departments)
     company = st.selectbox("Select company", companies)
     date = st.date_input("Select date")
     query = st.text_area("Enter your query")
@@ -154,6 +147,7 @@ else:
             query_data = {
                 "student_name": student_name,
                 "email_id": email_id,
+                "department":department,
                 "company": company,
                 "date": str(date),
                 "query": query

@@ -3,18 +3,12 @@
         {
             "queries": [
                 {
-                    "student_name": "Tushar Sharma",
+                    "student_name": "Tushar",
                     "email_id": "ts6264@srmist.edu.in",
+                    "department": "Computing Technologies",
                     "company": "AB Inbev",
-                    "date": "2023-04-04",
-                    "query": "offer letter not received."
-                },
-                {
-                    "student_name": "Tushar ",
-                    "email_id": "ts6264@srmist.edu.in",
-                    "company": "Bajaj Finserv",
                     "date": "2023-04-07",
-                    "query": "link not active"
+                    "query": "offer letter not received"
                 }
             ],
             "regno": "RA2011003010001",
@@ -25,13 +19,22 @@
             "email": "ts6264@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Amaan",
+                    "email_id": "ma2814@srmist.edu.in",
+                    "department": "Computing Technologies",
+                    "company": "Amazon WOW",
+                    "date": "2023-04-07",
+                    "query": "test link inactive"
+                }
+            ],
             "regno": "RA2011003010003",
             "username": "Mohd Amaan",
             "dob": "08-08-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ma2814@srmist.edu.in "
+            "email": "ma2814@srmist.edu.in"
         },
         {
             "queries": [],
@@ -13012,7 +13015,16 @@
             "email": "ag7738@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Aman  Kumar",
+                    "email_id": "ak0028@srmist.edu.in",
+                    "department": "Computational Intelligence",
+                    "company": "Aditya Birla Capital",
+                    "date": "2023-04-08",
+                    "query": "interview link not received"
+                }
+            ],
             "regno": "RA2011026010226",
             "username": "Aman  Kumar",
             "dob": "07-05-2002",

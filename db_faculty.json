@@ -1,0 +1,804 @@
+{
+    "faculty": [
+      {
+        "empid": 102939,
+        "name": "Dr.Vidhya S",
+        "dept": "Computing Technologies ",
+        "section": "A1-α",
+        "email": "vidhyas2@srmist.edu.in",
+        "contactno": 9444069002
+      },
+      {
+        "empid": 102064,
+        "name": "Mrs. Nithyakani P",
+        "dept": "Computing Technologies ",
+        "section": "A1-β",
+        "email": "nithyakp@srmist.edu.in ",
+        "contactno": 9790626371
+      },
+      {
+        "empid": 100487,
+        "name": "Dr T K Sivakumar ",
+        "dept": "Computing Technologies ",
+        "section": "B1-α",
+        "email": "sivakumt2@srmist.edu.in",
+        "contactno": 9444202864
+      },
+      {
+        "empid": 102670,
+        "name": "Dr. Rajkamal ",
+        "dept": "Computing Technologies ",
+        "section": "B1-β",
+        "email": "rajkamar@srmist.edu.in",
+        "contactno": 9176689008
+      },
+      {
+        "empid": 102090,
+        "name": "Dr.M.Uma Devi",
+        "dept": "Computing Technologies ",
+        "section": "C1-α",
+        "email": "umadevim@srmist.edu.in",
+        "contactno": 9444536571
+      },
+      {
+        "empid": 102936,
+        "name": "Dr.Vinod D",
+        "dept": "Computing Technologies ",
+        "section": "C1-β",
+        "email": "vinodd@srmist.edu.in",
+        "contactno": 9962046411
+      },
+      {
+        "empid": 102256,
+        "name": "Dr.Renuka Devi",
+        "dept": "Computing Technologies ",
+        "section": "D1-α",
+        "email": "renukadr@srmist.edu.in",
+        "contactno": 9952399936
+      },
+      {
+        "empid": 101308,
+        "name": "Dr.C.Santhanakrishnan",
+        "dept": "Computing Technologies ",
+        "section": "D1-β",
+        "email": "santhanc@srmist.edu.in ",
+        "contactno": 9042962822
+      },
+      {
+        "empid": 102091,
+        "name": "Dr J Selvin Paul Peter",
+        "dept": "Computing Technologies ",
+        "section": "E1-α",
+        "email": "Selvinpj@srmist.edu.in",
+        "contactno": 9986563360
+      },
+      {
+        "empid": 101303,
+        "name": "Mrs.S.Kiruthika Devi",
+        "dept": "Computing Technologies ",
+        "section": "E1-β",
+        "email": "kiruthis2@srmist.edu.in",
+        "contactno": 9884642466
+      },
+      {
+        "empid": 102966,
+        "name": "Dr.A.Anbarasi",
+        "dept": "Computing Technologies ",
+        "section": "F1-α",
+        "email": "anbarasa3@srmist.edu.in",
+        "contactno": 9944434594
+      },
+      {
+        "empid": 100934,
+        "name": "Dr.Jagadeesan S ",
+        "dept": "Computing Technologies ",
+        "section": "F1-β",
+        "email": "jagadees@srmist.edu.in",
+        "contactno": 9994758364
+      },
+      {
+        "empid": 102679,
+        "name": "Dr.P.Velmurugan ",
+        "dept": "Computing Technologies",
+        "section": "G1-α",
+        "email": "velmurup1@srmist.edu.in",
+        "contactno": 8171416311
+      },
+      {
+        "empid": 101616,
+        "name": "Mr.R Subash",
+        "dept": "Computing Technologies ",
+        "section": "G1-β",
+        "email": "subashr@srmist.edu.in",
+        "contactno": 9952775930
+      },
+      {
+        "empid": 102997,
+        "name": "Dr.G.Balamurugan",
+        "dept": "Computing Technologies ",
+        "section": "H1-α",
+        "email": "balamurg1@srmist.edu.in",
+        "contactno": 9629308990
+      },
+      {
+        "empid": 102096,
+        "name": "Mrs.R. Brindha",
+        "dept": "Computing Technologies ",
+        "section": "H1-β",
+        "email": "brindhar1@srmist.edu.in",
+        "contactno": 9788566551
+      },
+      {
+        "empid": 101947,
+        "name": "Dr.R.Srinivasan",
+        "dept": "Computing Technologies ",
+        "section": "I1-α",
+        "email": "srinivar@srmist.edu.in ",
+        "contactno": 9952218180
+      },
+      {
+        "empid": 102218,
+        "name": "Mrs.M.Vaidehi",
+        "dept": "Computing Technologies ",
+        "section": "I1-β",
+        "email": "vaidhehm@srmist.edu.in ",
+        "contactno": 8870971530
+      },
+      {
+        "empid": 101533,
+        "name": "Dr. G. Abirami",
+        "dept": "Computing Technologies ",
+        "section": "J1-α",
+        "email": "abiramig@srmist.edu.in",
+        "contactno": 9551129985
+      },
+      {
+        "empid": 101562,
+        "name": "Mrs. B. Ida Seraphim",
+        "dept": "Computing Technologies ",
+        "section": "J1-β",
+        "email": "idaserab@srmist.edu.in",
+        "contactno": 9894190197
+      },
+      {
+        "empid": 102678,
+        "name": "Dr.Godfrey Winster S",
+        "dept": "Computing Technologies ",
+        "section": "A2-α",
+        "email": "godfreys@srmist.edu.in",
+        "contactno": 9962594141
+      },
+      {
+        "empid": 100916,
+        "name": "Mrs.S.Nagadevi",
+        "dept": "Computing Technologies ",
+        "section": "A2-β",
+        "email": "nagadevs@srmist.edu.in",
+        "contactno": 9025811949
+      },
+      {
+        "empid": 101946,
+        "name": "Mr.M.Senthil Raja",
+        "dept": "Computing Technologies ",
+        "section": "B2-α",
+        "email": "senthilm6@srmist.edu.in",
+        "contactno": 9884445605
+      },
+      {
+        "empid": 102094,
+        "name": "Mrs.P.Renukadevi",
+        "dept": "Computing Technologies ",
+        "section": "B2-β",
+        "email": "renukadp@srmist.edu.in",
+        "contactno": 9962200670
+      },
+      {
+        "empid": 102606,
+        "name": "Dr. M. Baskar",
+        "dept": "Computing Technologies ",
+        "section": "C2-α",
+        "email": "baskarm1@srmist.edu.in",
+        "contactno": 8248485987
+      },
+      {
+        "empid": 102550,
+        "name": "Dr. P. Murali",
+        "dept": "Computing Technologies ",
+        "section": "C2-β",
+        "email": " muralip@srmist.edu.in",
+        "contactno": 9944114483
+      },
+      {
+        "empid": 102605,
+        "name": "Dr.Ramkumar Jayaraman",
+        "dept": "Computing Technologies ",
+        "section": "D2-α",
+        "email": "ramkumaj@srmist.edu.in",
+        "contactno": 9894425770
+      },
+      {
+        "empid": 102077,
+        "name": "Mrs.D.Viji",
+        "dept": "Computing Technologies ",
+        "section": "D2-β",
+        "email": "vijid@srmist.edu.in",
+        "contactno": 9043784275
+      },
+      {
+        "empid": 102671,
+        "name": "Dr. L. Kavisankar",
+        "dept": "Computing Technologies ",
+        "section": "E2-α",
+        "email": "kavisanl@srmist.edu.in",
+        "contactno": 9884564670
+      },
+      {
+        "empid": 100933,
+        "name": "Mr. A.M.J Muthu Kumaran",
+        "dept": "Computing Technologies ",
+        "section": "E2-β",
+        "email": "muthua@srmist.edu.in",
+        "contactno": 9080583664
+      },
+      {
+        "empid": 102676,
+        "name": "Dr.C. Pretty Diana Cyril ",
+        "dept": "Computing Technologies ",
+        "section": "F2-α",
+        "email": "prettydc@srmist.edu.in",
+        "contactno": 9790086808
+      },
+      {
+        "empid": 100180,
+        "name": "Dr.K.R.Jansi",
+        "dept": "Computing Technologies ",
+        "section": "F2-β",
+        "email": "jansik@srmist.edu.in",
+        "contactno": 9600082712
+      },
+      {
+        "empid": 102692,
+        "name": "Dr. M. Aruna",
+        "dept": "Computing Technologies ",
+        "section": "G2-α",
+        "email": "arunam@srmist.edu.in",
+        "contactno": 9842973841
+      },
+      {
+        "empid": 101925,
+        "name": "Mrs. M.Rajalakshmi",
+        "dept": "Computing Technologies ",
+        "section": "G2-β",
+        "email": "rajalakm2@srmist.edu.in",
+        "contactno": 9566034845
+      },
+      {
+        "empid": 101931,
+        "name": "Mrs.R.Anita",
+        "dept": "Computing Technologies ",
+        "section": "H2-α",
+        "email": "anitar@srmist.edu.in ",
+        "contactno": 9787983363
+      },
+      {
+        "empid": 102084,
+        "name": "Mrs.R.Lavanya",
+        "dept": "Computing Technologies ",
+        "section": "H2-β",
+        "email": "lavanyar@srmist.edu.in",
+        "contactno": 9791215410
+      },
+      {
+        "empid": 101973,
+        "name": "Dr.Nithya",
+        "dept": "Computing Technologies ",
+        "section": "I2-α",
+        "email": "Nithiyas@srmist.edu.in",
+        "contactno": 7598471746
+      },
+      {
+        "empid": 101061,
+        "name": "Mr.Saminathan S",
+        "dept": "Computing Technologies ",
+        "section": "I2-β",
+        "email": "saminats@srmist.edu.in",
+        "contactno": 9865132874
+      },
+      {
+        "empid": 101358,
+        "name": "Dr.K.Deeba",
+        "dept": "Computing Technologies ",
+        "section": "J2-α",
+        "email": "deebak@srmist.edu.in",
+        "contactno": 9715241977
+      },
+      {
+        "empid": 102581,
+        "name": "Mr.Vinoth N.A.S ",
+        "dept": "Computing Technologies ",
+        "section": "J2-β",
+        "email": "vinoths@srmist.edu.in ",
+        "contactno": 9600788043
+      },
+      {
+        "empid": 102485,
+        "name": "Dr. M. Prakash",
+        "dept": "Data Science and Business Systems",
+        "section": "U2",
+        "email": "prakashm2@srmist.edu.in",
+        "contactno": 9894664948
+      },
+      {
+        "empid": 101949,
+        "name": "Mrs. S. Srividhya",
+        "dept": "Data Science and Business Systems",
+        "section": "V1",
+        "email": "srividhs1@srmist.edu.in",
+        "contactno": 9003425149
+      },
+      {
+        "empid": 102757,
+        "name": "Dr. S. Suchitra",
+        "dept": "Data Science and Business Systems",
+        "section": "V2-α",
+        "email": "suchitrs@srmist.edu.in",
+        "contactno": 6369011096
+      },
+      {
+        "empid": 102810,
+        "name": "Dr. T. Veeramakali",
+        "dept": "Data Science and Business Systems",
+        "section": "V2-β",
+        "email": "veeramat@srmist.edu.in",
+        "contactno": 9123597835
+      },
+      {
+        "empid": 101945,
+        "name": "Dr. S. Sharanya",
+        "dept": "Data Science and Business Systems",
+        "section": "W1-α",
+        "email": "sharanys1@srmist.edu.in",
+        "contactno": 9003444631
+      },
+      {
+        "empid": 101918,
+        "name": "Mrs. R. Radha",
+        "dept": "Data Science and Business Systems",
+        "section": "W1-β",
+        "email": "radhar@srmist.edu.in",
+        "contactno": 9444759175
+      },
+      {
+        "empid": 102817,
+        "name": "Dr. A.Shobanadevi",
+        "dept": "Data Science and Business Systems",
+        "section": "W2-α",
+        "email": "shobanaa3@srmist.edu.in",
+        "contactno": 9942932807
+      },
+      {
+        "empid": 102933,
+        "name": "Dr. Sv. Shri Bharathi",
+        "dept": "Data Science and Business Systems",
+        "section": "W2-β",
+        "email": "shribhas@srmist.edu.in",
+        "contactno": 9942258389
+      },
+      {
+        "empid": 101956,
+        "name": "Mrs. S.Sindhu",
+        "dept": "Data Science and Business Systems",
+        "section": "X1-α",
+        "email": "sindhus2@srmist.edu.in",
+        "contactno": 9566008847
+      },
+      {
+        "empid": 102708,
+        "name": "Dr. P Saravanan ",
+        "dept": "Data Science and Business Systems",
+        "section": "X1-β",
+        "email": "saravanp6@srmist.edu.in",
+        "contactno": 8675804913
+      },
+      {
+        "empid": 102927,
+        "name": "Dr. J. Shobana",
+        "dept": "Data Science and Business Systems",
+        "section": "X2-α",
+        "email": "shobanaj1@srmist.edu.in",
+        "contactno": 9884615700
+      },
+      {
+        "empid": 102822,
+        "name": "Dr.Paul T Sheeba",
+        "dept": "Data Science and Business Systems",
+        "section": "X2-β",
+        "email": "pault@srmist.edu.in",
+        "contactno": 9841581699
+      },
+      {
+        "empid": 102087,
+        "name": "Dr. M. Sangeetha",
+        "dept": "Data Science and Business Systems",
+        "section": "Y1-α",
+        "email": "sangeetk@srmist.edu.in",
+        "contactno": 9600036362
+      },
+      {
+        "empid": 102667,
+        "name": "Dr. S. Jeeva",
+        "dept": "Data Science and Business Systems",
+        "section": "Y1-β",
+        "email": "jeevas@srmist.edu.in",
+        "contactno": 9677652585
+      },
+      {
+        "empid": 102776,
+        "name": "Dr.P.Balaji Srikaanth",
+        "dept": "Networking and Communications",
+        "section": "K1-α",
+        "email": "balajis7@srmist.edu.in",
+        "contactno": "97510 09897"
+      },
+      {
+        "empid": 102069,
+        "name": "Ms. G.Parimala",
+        "dept": "Networking and Communications",
+        "section": "K1-β",
+        "email": "parimalg@srmist.edu.in",
+        "contactno": 9840971884
+      },
+      {
+        "empid": 102680,
+        "name": "Dr. K.Deepa Thilak ",
+        "dept": "Networking and Communications",
+        "section": "K2-α",
+        "email": "deepathk@srmist.edu.in",
+        "contactno": 9566732457
+      },
+      {
+        "empid": 102227,
+        "name": "Ms. V.Vijayalakshmi",
+        "dept": "Networking and Communications",
+        "section": "K2-β",
+        "email": "vijayalv@srmist.edu.in",
+        "contactno": 8678921167
+      },
+      {
+        "empid": 101625,
+        "name": "Dr.TYJ Naga Malleswari",
+        "dept": "Networking and Communications",
+        "section": "L1-α",
+        "email": "nagamalt@srmist.edu.in",
+        "contactno": 9176314249
+      },
+      {
+        "empid": 102789,
+        "name": "Dr.N.Senthamarai",
+        "dept": "Networking and Communications",
+        "section": "L1-β",
+        "email": "senthamn@srmist.edu.in",
+        "contactno": 8838222378
+      },
+      {
+        "empid": 100401,
+        "name": "Dr.Godwin Ponsam",
+        "dept": "Networking and Communications",
+        "section": "L2-α",
+        "email": "godwinj@srmist.edu.in",
+        "contactno": 7299164111
+      },
+      {
+        "empid": 102775,
+        "name": "Dr. B Yamini",
+        "dept": "Networking and Communications",
+        "section": "L2-β",
+        "email": "yaminib@srmist.edu.in",
+        "contactno": 9884888793
+      },
+      {
+        "empid": 102711,
+        "name": "Dr.S.Thanga Revathi",
+        "dept": "Networking and Communications",
+        "section": "M1-α",
+        "email": "thangars@srmist.edu.in",
+        "contactno": 9940567047
+      },
+      {
+        "empid": 101878,
+        "name": "Ms. Mahalakshmi.P",
+        "dept": "Networking and Communications",
+        "section": "M1-β",
+        "email": "mahalakp@srmist.edu.in",
+        "contactno": 9600663220
+      },
+      {
+        "empid": 102661,
+        "name": "Dr N Prasath",
+        "dept": "Networking and Communications",
+        "section": "M2-α",
+        "email": "prasathn@srmist.edu.in",
+        "contactno": 9894932371
+      },
+      {
+        "empid": 101305,
+        "name": "Mr. C. Rajesh Babu",
+        "dept": "Networking and Communications",
+        "section": "M2-β",
+        "email": "rajeshbc@srmist.edu.in",
+        "contactno": 9994089886
+      },
+      {
+        "empid": 102693,
+        "name": "Dr.N.Krishnaraj",
+        "dept": "Networking and Communications",
+        "section": "N1-α",
+        "email": "krishnan2@srmist.edu.in",
+        "contactno": 9677379955
+      },
+      {
+        "empid": 101916,
+        "name": "V Joseph Raymond",
+        "dept": "Networking and Communications",
+        "section": "N1-β",
+        "email": "josephrv@srmist.edu.in",
+        "contactno": 9894639679
+      },
+      {
+        "empid": 102681,
+        "name": "Dr.K.Kalaiselvi",
+        "dept": "Networking and Communications",
+        "section": "N2-α",
+        "email": "kalaisek2@srmist.edu.in",
+        "contactno": 9962572473
+      },
+      {
+        "empid": 101087,
+        "name": "Mr.T.Balachander",
+        "dept": "Networking and Communications",
+        "section": "N2-β",
+        "email": "balachat2@srmist.edu.in",
+        "contactno": 9442219875
+      },
+      {
+        "empid": 102728,
+        "name": "Dr. V.R.Balasaraswathi",
+        "dept": "Networking and Communications",
+        "section": "O1-α",
+        "email": "balasarr@srmist.edu.in",
+        "contactno": 9597208406
+      },
+      {
+        "empid": 102065,
+        "name": "Dr. S. Thenmalar",
+        "dept": "Networking and Communications",
+        "section": "O1-β",
+        "email": "thenmals@srmist.edu.in",
+        "contactno": 9841244268
+      },
+      {
+        "empid": 101588,
+        "name": "Ms.M.Safa",
+        "dept": "Networking and Communications",
+        "section": "O2-α",
+        "email": "safam@srmist.edu.in",
+        "contactno": 9952783715
+      },
+      {
+        "empid": 102098,
+        "name": "Ms. Lavanya V",
+        "dept": "Networking and Communications",
+        "section": "O2-β",
+        "email": "lavanyav@srmist.edu.in",
+        "contactno": 7200380828
+      },
+      {
+        "empid": 102725,
+        "name": "Dr.Mary Subaja Christo",
+        "dept": "Networking and Communications",
+        "section": "P1-α",
+        "email": "marysubc@srmist.edu.in",
+        "contactno": 9043122949
+      },
+      {
+        "empid": 102219,
+        "name": "Ms. Saisanthiya",
+        "dept": "Networking and Communications",
+        "section": "P1-β",
+        "email": "saisantd@srmist.edu.in",
+        "contactno": 9786454422
+      },
+      {
+        "empid": 101959,
+        "name": "Mr.Joseph James ",
+        "dept": "Computational Intelligence",
+        "section": "AI-Aα",
+        "email": "josephjs@srmist.edu.in",
+        "contactno": 8489133936
+      },
+      {
+        "empid": 102890,
+        "name": "Dr.J.J.Jayakanth",
+        "dept": "Computational Intelligence",
+        "section": "AI-Aβ",
+        "email": "jayakanj@srmist.edu.in",
+        "contactno": 9894618348
+      },
+      {
+        "empid": 101570,
+        "name": "Dr.Selvakumara Samy ",
+        "dept": "Computational Intelligence",
+        "section": "AI-Bα",
+        "email": "selvakus1@srmist.edu.in",
+        "contactno": 9884020561
+      },
+      {
+        "empid": 102880,
+        "name": "Dr.T.Subha ",
+        "dept": "Computational Intelligence",
+        "section": "AI-Bβ",
+        "email": "subhat@srmist.edu.in",
+        "contactno": 9841630295
+      },
+      {
+        "empid": 102934,
+        "name": "Dr.Vijayalakshmi ",
+        "dept": "Computational Intelligence",
+        "section": "P2-α",
+        "email": "vijaylak@srmist.edu.in",
+        "contactno": 8681998954
+      },
+      {
+        "empid": 102883,
+        "name": "Dr.K.Suresh ",
+        "dept": "Computational Intelligence",
+        "section": "P2-β",
+        "email": "sureshk8@srmist.edu.in",
+        "contactno": 9962546977
+      },
+      {
+        "empid": 102722,
+        "name": "Dr. M Vimaladevi",
+        "dept": "Computational Intelligence",
+        "section": "Q1-α",
+        "email": "vimaladm@srmist.edu.in",
+        "contactno": 9442365903
+      },
+      {
+        "empid": 102989,
+        "name": "Dr R A Karthika ",
+        "dept": "Computational Intelligence",
+        "section": "Q1-β",
+        "email": "karthikr4@srmist.edu.in",
+        "contactno": 9994839194
+      },
+      {
+        "empid": 101407,
+        "name": "Mrs. Al.Amutha ",
+        "dept": "Computational Intelligence",
+        "section": "Q2-α",
+        "email": "amuthaa1@srmist.edu.in",
+        "contactno": 8608200820
+      },
+      {
+        "empid": 102893,
+        "name": "Dr.Babu",
+        "dept": "Computational Intelligence",
+        "section": "Q2-β",
+        "email": "babur@srmist.edu.in",
+        "contactno": 7010691102
+      },
+      {
+        "empid": 102986,
+        "name": "Mrs. Akshya J ",
+        "dept": "Computational Intelligence",
+        "section": "R1-α",
+        "email": "akshyaj@srmist.edu.in",
+        "contactno": 9791080503
+      },
+      {
+        "empid": 102887,
+        "name": "Dr.S.Velliangiri",
+        "dept": "Computational Intelligence",
+        "section": "R1-β",
+        "email": "vellians@srmist.edu.in",
+        "contactno": 9500519166
+      },
+      {
+        "empid": 102782,
+        "name": "Dr.S.Sadagopan ",
+        "dept": "Computational Intelligence",
+        "section": "R2-α",
+        "email": "sadagops@srmist.edu.in",
+        "contactno": 9790743670
+      },
+      {
+        "empid": 102909,
+        "name": "Dr.K.Moorthi ",
+        "dept": "Computational Intelligence",
+        "section": "R2-β",
+        "email": "moorthik@srmist.edu.in",
+        "contactno": 9566439543
+      },
+      {
+        "empid": 102733,
+        "name": "Dr.A.Revathy ",
+        "dept": "Computational Intelligence",
+        "section": "S1-α",
+        "email": "revathia1@srmist.edu.in",
+        "contactno": 9445279539
+      },
+      {
+        "empid": 102906,
+        "name": "Dr.A. Maheshwari ",
+        "dept": "Computational Intelligence",
+        "section": "S1-β",
+        "email": "maheshwa1@srmist.edu.in",
+        "contactno": 9884427554
+      },
+      {
+        "empid": 102768,
+        "name": "Dr.S.K.Lavanya ",
+        "dept": "Computational Intelligence",
+        "section": "S2-α",
+        "email": "lavanyas6@srmist.edu.in",
+        "contactno": 9486083142
+      },
+      {
+        "empid": 102907,
+        "name": "Mrs.T.Nathezhtha",
+        "dept": "Computational Intelligence",
+        "section": "S2-β",
+        "email": "nathezht@srmist.edu.in",
+        "contactno": 8056932665
+      },
+      {
+        "empid": 102709,
+        "name": "Dr.Hariharan",
+        "dept": "Computational Intelligence",
+        "section": "T1-α",
+        "email": "hariharb@srmist.edu.in",
+        "contactno": 9841823154
+      },
+      {
+        "empid": 102876,
+        "name": "Dr. Robert Singh ",
+        "dept": "Computational Intelligence",
+        "section": "T1-β",
+        "email": "robertsa@srmist.edu.in",
+        "contactno": 8056171730
+      },
+      {
+        "empid": 101565,
+        "name": "Dr.B.Jothi",
+        "dept": "Computational Intelligence",
+        "section": "T2-α",
+        "email": "jothib@srmist.edu.in",
+        "contactno": 9677741348
+      },
+      {
+        "empid": 102877,
+        "name": "Dr.Sudha Rajesh ",
+        "dept": "Computational Intelligence",
+        "section": "T2-β",
+        "email": "sudhar3@srmist.edu.in",
+        "contactno": 9445959163
+      },
+      {
+        "empid": 102820,
+        "name": "Dr.Vimal",
+        "dept": "Computational Intelligence",
+        "section": "U1-α",
+        "email": "vimals@srmist.edu.in",
+        "contactno": 9841502092
+      },
+      {
+        "empid": 102993,
+        "name": "Dr.N.Kanimozhi",
+        "dept": "Computational Intelligence",
+        "section": "U1-β",
+        "email": "vimals@srmist.edu.in",
+        "contactno": 9841502092
+      }
+    ]
+  }
