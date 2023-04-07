@@ -4,16 +4,21 @@ import csv
 import matplotlib.pyplot as plt
 import sqlite3
 import json
+import pandas as pd
+
 
 #Connecting to db 
 f = open('db_student.json')
 data = json.load(f)
 
+
+#@st.cache_data
 @st.experimental_memo
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
+
 
 img = get_img_as_base64("image.jpg")
 
@@ -101,46 +106,67 @@ else:
     # Render custom CSS
     st.markdown(style, unsafe_allow_html=True)
     
+    # Define the function to load student data from the JSON file
+    def load_students():
+        with open('db_student.json', 'r') as f:
+            students = json.load(f)
+        return students
 
-    # Connect to database
+    # Define the function to save student data to the JSON file
+    def save_students(students):
+        with open('db_student.json', 'w') as f:
+            json.dump(students, f, indent=4)
+
+    # Define the function to add a query to a student's record
+    def add_query_to_student(student, query):
+        student['queries'].append(query)
+
+    # Connect to the database
     conn = sqlite3.connect('queries.db')
     c = conn.cursor()
 
-    # Create table if it doesn't exist
+    # Create the table if it doesn't exist
     c.execute('''CREATE TABLE IF NOT EXISTS queries
-                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT, status TEXT,section TEXT)''')
+                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT)''')
 
-    # Display input fields and submit button
-    companies = ["Adobe", "Affinsys AI", "Afford Medical Technologies","Agumentik Software","Aidash","Alstom","Amadeus","Amazon WOW"]
+    # Read the Excel file and extract the company names
+    df = pd.read_excel('Company Database.xlsx')
+    companies = list(df['Company Name'])
 
-    student_name= st.text_input("Enter your name")
-    email_id= st.text_input("Enter your email id")
-    company= st.selectbox("Select company", companies)
-    date= st.date_input("Select date")
-    query= st.text_area("Enter your query")
-    sections=["A1-α","A1-β","B1-α","B1-β","C1-α","C1-β","D1-α","D1-β","E1-α","E1-β","F1-α","F1-","G1-α","G1-β","H1-α","H1-β","I1-α","I1-β","J1-α","J1-β","K1-α","K1-β","L1-α","L1-β","M1-α","M1-β","N1-α","N1-β"]
-    section=st.selectbox("Select you section",sections)
+
+    # Display the input fields
+    student_name = st.text_input("Enter your name")
+    email_id = st.text_input("Enter your email id")
+    company = st.selectbox("Select company", companies)
+    date = st.date_input("Select date")
+    query = st.text_area("Enter your query")
 
     if st.button("Submit"):
-        # Save query data to database
-        c.execute('INSERT INTO queries (student_name, email_id, company, date, query, status, section) VALUES (?, ?, ?, ?, ?, ?, ?)', (student_name, email_id, company, date, query, "Unresolved", section))
+        # Save the query data to the database
+        c.execute('INSERT INTO queries (student_name, email_id, company, date, query) VALUES (?, ?, ?, ?, ?)', (student_name, email_id, company, date, query))
         conn.commit()
         st.success("Query submitted successfully!")
-                
-    
-    raised = 20
-    resolved = 15
 
-    st.markdown("<div style='text-align:center;color:#202A44;font-family: Cooper Black;font-size:20px;'>YOUR QUERY STATUS </div>", unsafe_allow_html=True)
+        # Load the list of students from the JSON file
+        students = load_students()
 
-    # Pie chart, where the slices will be ordered and plotted counter-clockwise:
-    labels = 'Queries Raised', 'Queries Resolved'
-    sizes = [raised, resolved]
-    explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Queries Resolved')
+        # Find the student record based on the email ID
+        student = next((s for s in students['student'] if s['email'] == email_id), None)
 
-    fig1, ax1 = plt.subplots()
-    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-            shadow=True, startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+        if student:
+            # Add the query to the student's record
+            query_data = {
+                "student_name": student_name,
+                "email_id": email_id,
+                "company": company,
+                "date": str(date),
+                "query": query
+            }
+            add_query_to_student(student, query_data)
 
-    st.pyplot(fig1)
+            # Save the updated student data to the JSON file
+            save_students(students)
+
+            st.success("Query added to student record successfully!")
+        else:
+            st.error("No student record found for this email ID.")
