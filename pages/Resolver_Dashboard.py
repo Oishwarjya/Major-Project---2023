@@ -13,7 +13,7 @@ import sqlite3
 
 df = px.data.iris()
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -93,6 +93,7 @@ else:
         to = st.text_input("To", selected_data[1])
         subject = st.text_input("Subject", selected_data[4])
         message = st.text_area("Message")
+                
         if st.button("Send Email"):
             # Create email message
             msg = MIMEMultipart()

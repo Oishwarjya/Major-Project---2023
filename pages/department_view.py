@@ -6,7 +6,7 @@ import pandas as pd
 
 df = px.data.iris()
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -50,6 +50,8 @@ elif st.session_state['Type']!= "Department":
 else:
     st.write("Department Head ID: ", st.session_state["status"])
     st.title("DEPARTMENT LEVEL DASHBOARD")
+
+    
     section_names = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1','G1','H1','I1','J1','K1','L1','M1','N1','O1']
     resolved = [10, 8, 12, 9, 14, 11, 7, 15, 12, 13, 8, 10, 11, 9, 7]
     pending = [5, 4, 6, 7, 2, 5, 9, 1, 4, 3, 8, 6, 5, 7, 9]
