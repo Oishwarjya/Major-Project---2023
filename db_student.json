@@ -1,7 +1,15 @@
 {
     "student": [
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Tushar Sharma",
+                    "email_id": "ts6264@srmist.edu.in",
+                    "company": "5th Bridge data Technologies",
+                    "date": "2023-04-09",
+                    "query": "Test link not received"
+                }
+            ],
             "regno": "RA2011003010001",
             "username": "Tushar Sharma",
             "dob": "07-07-2001",

@@ -10,8 +10,13 @@ from email.mime.base import MIMEBase
 from email.utils import COMMASPACE
 from email import encoders
 import sqlite3
+import json
 
 df = px.data.iris()
+
+# Load resolver data from JSON file
+with open('db_faculty.json') as f:
+    faculty_sec = json.load(f)
 
 @st.experimental_memo
 def get_img_as_base64(file):
@@ -50,10 +55,41 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 if st.session_state["status"] == "Fail":
     st.title("INVALID LOGIN!!")
 
-elif st.session_state['Type']!= "Resolver":
+elif st.session_state['Type']!= "Faculty Advisor":
     st.title("INVALID LOGIN!!")
 
 else:
-    st.write("Resolver ID: ", st.session_state["status"])   
-    st.title("Faculty Dashboard")
-    st.write("Welcome! Here are the queries that need your attention:")
+    st.write("Faculty Name: ", st.session_state["Name"])  
+    st.write("Faculty emp_id: ", st.session_state["status"])   
+    st.title("Faculty Advisor Dashboard")
+    st.write("Below are the queries Submitted under your section")
+
+
+    logged_in_empid = st.session_state["status"]
+    print (logged_in_empid)
+    
+    faculty_sec = None
+    for faculty in faculty_sec['faculty']:
+        if faculty['empid'] == logged_in_empid:
+            faculty_sec = faculty['section']
+            break
+
+    with open('db_student.json', 'r') as f:
+        students = json.load(f)
+
+    sec_queries = []
+    for student in students['student']:
+        if student['section'] == faculty_sec:
+            sec_queries.extend(student['queries'])
+
+    # Display filtered queries in a table format
+    if sec_queries:
+        query_table = []
+        for i, query in enumerate(sec_queries):
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query']])
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query"]
+        query_df = pd.DataFrame(query_table, columns=query_table_columns)
+        st.table(query_df)
+    
+    else:
+        st.write("No queries found for your Section.")

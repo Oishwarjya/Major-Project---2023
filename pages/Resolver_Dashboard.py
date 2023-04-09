@@ -10,8 +10,13 @@ from email.mime.base import MIMEBase
 from email.utils import COMMASPACE
 from email import encoders
 import sqlite3
+import json
 
 df = px.data.iris()
+
+# Load resolver data from JSON file
+with open('db_resolver.json') as f:
+    resolver_data = json.load(f)
 
 @st.experimental_memo
 def get_img_as_base64(file):
@@ -54,62 +59,67 @@ elif st.session_state['Type']!= "Resolver":
     st.title("INVALID LOGIN!!")
 
 else:
-    st.write("Resolver ID: ", st.session_state["status"])   
-    st.title("Faculty Dashboard")
-    st.write("Welcome! Here are the queries that need your attention:")
+    st.write("Resolver Name: ", st.session_state["Name"])  
+    st.write("Resolver emp_id: ", st.session_state["status"])   
+    st.title("Resolver Dashboard")
+    st.write("Below are the queries that need to be resolved")
 
-    # Connect to database
-    conn = sqlite3.connect('queries.db')
-    c = conn.cursor()
 
-    # Retrieve query data from database
-    c.execute('SELECT * FROM queries')
-    data = c.fetchall()
-
-    # Display table with all entries from database
-    if data:
-        st.write("Below are the queries that need to be resolved")
-        for row in data:
-            st.write(row)
+    logged_in_empid = st.session_state["status"]
+    print (logged_in_empid)
     
-    # Display data in a table format with an option to select a particular row
-    if data:
-        selected_row = st.selectbox("Select the query you want to resolve", range(len(data)))
-        selected_data = data[selected_row]
-        st.write("Selected row:", selected_row)
-        st.write("Name:", selected_data[0])
-        st.write("Email:", selected_data[1])
-        st.write("Company:", selected_data[2])
-        st.write("Date:", selected_data[3])
-        st.write("Query:", selected_data[4])
-        subject = selected_data[4]
+    resolver_dept = None
+    for resolver in resolver_data['resolver']:
+        if resolver['empid'] == logged_in_empid:
+            resolver_dept = resolver['dept']
+            break
+
+    with open('db_student.json', 'r') as f:
+        students = json.load(f)
+
+    dept_queries = []
+    for student in students['student']:
+        if student['dept'] == resolver_dept:
+            dept_queries.extend(student['queries'])
+
+    # Display filtered queries in a table format
+    if dept_queries:
+        query_table = []
+        for i, query in enumerate(dept_queries):
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query']])
+
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query"]
+        query_df = pd.DataFrame(query_table, columns=query_table_columns)
+        st.table(query_df)
+    
     else:
-        st.write("No data found in database.")
+        st.write("No queries found for your department.")
+    
+    # Send email to selected query
+    if dept_queries:
+        selected_row = st.selectbox("Select the Query No you want to resolve", range(1, len(dept_queries) + 1))
+        selected_query = dept_queries[selected_row-1]
 
-    # Display form to send email
-    if data:
-        st.write("Send email to student to rectify query")
-        from_email = st.text_input("From", "srmpqh@gmail.com")
-        to = st.text_input("To", selected_data[1])
-        subject = st.text_input("Subject", selected_data[4])
-        message = st.text_area("Message")
-        final_body = t=f"Hello {selected_data[0]}, \n\nYour query: {selected_data[4]} -----> has been resolved as follows:\n {message} \n\nFor any further queries please reach out to your query resolver. \n\nResolver name: \nResolver mail id:"
-        if st.button("Send Email"):
-            # Create email message
-            msg = MIMEMultipart()
-            msg['From'] = from_email
-            msg['To'] = to
-            msg['Subject'] = subject
-            msg.attach(MIMEText(final_body, 'plain'))
+        if st.button("Details of selected Query"):
+            st.dataframe(selected_query)
+            st.write("Send email to student to rectify query")
+            from_email = st.text_input("From", "srmpqh@gmail.com")
+            to = st.text_input("To", selected_query['email_id'])
+            subject = st.text_input("Subject", selected_query['query'])
+            message = st.text_area("Message")
 
-            # Send email
-            server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with SMTP server and port
-            server.starttls()
-            server.login('srmpqh@gmail.com', 'fnsuhdjegwzzzurs')  # Replace with faculty email and password
-            server.sendmail(msg['From'], msg['To'], msg.as_string())
-            server.quit()
-            st.success("Email sent successfully!")
-            #Update status as Resolved after mail is sent
+            if st.button("Send Email"):
+                # Create email message
+                msg = MIMEMultipart()
+                msg['From'] = from_email
+                msg['To'] = to
+                msg['Subject'] = subject
+                msg.attach(MIMEText(message, 'plain'))
 
-
-
+                # Send email
+                server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with SMTP server and port
+                server.starttls()
+                server.login('srmpqh@gmail.com', 'fnsuhdjegwzzzurs')  
+                server.sendmail(msg['From'], msg['To'], msg.as_string())
+                server.quit()
+                st.success("Email sent successfully!")
