@@ -16,7 +16,7 @@ df = px.data.iris()
 
 # Load resolver data from JSON file
 with open('db_faculty.json') as f:
-    faculty_sec = json.load(f)
+    faculty_data = json.load(f)
 
 @st.experimental_memo
 def get_img_as_base64(file):
@@ -69,7 +69,7 @@ else:
     print (logged_in_empid)
     
     faculty_sec = None
-    for faculty in faculty_sec['faculty']:
+    for faculty in faculty_data['faculty']:
         if faculty['empid'] == logged_in_empid:
             faculty_sec = faculty['section']
             break
