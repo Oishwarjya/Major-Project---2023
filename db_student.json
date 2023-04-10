@@ -14815,13 +14815,22 @@
             "email": "sr3804@srmist.edu.in "
         },
         {
-            "queries": [],
-            "regno": "RA2011027010025 ",
+            "queries": [
+                {
+                    "student_name": "Shlok Singh",
+                    "email_id": "ss8701@srmist.edu.in",
+                    "department": "Data Science and Business Systems",
+                    "company": "Accenture",
+                    "date": "2023-04-08",
+                    "query": "superset unfreeze"
+                }
+            ],
+            "regno": "RA2011027010025",
             "username": "Shlok Singh ",
             "dob": "29-11-2001",
             "dept": "Data Science and Business Systems",
             "section": "V2-\u00ce\u00b1",
-            "email": "ss8701@srmist.edu.in "
+            "email": "ss8701@srmist.edu.in"
         },
         {
             "queries": [],

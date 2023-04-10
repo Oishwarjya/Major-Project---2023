@@ -66,7 +66,6 @@ else:
 
 
     logged_in_empid = st.session_state["status"]
-    print (logged_in_empid)
     
     resolver_dept = None
     for resolver in resolver_data['resolver']:
@@ -80,15 +79,19 @@ else:
     dept_queries = []
     for student in students['student']:
         if student['dept'] == resolver_dept:
-            dept_queries.extend(student['queries'])
+            for query in student['queries']:
+                # Initially mark all queries as unresolved
+                query['resolved'] = False
+                dept_queries.append(query)
+                dept_queries.extend(student['queries'])
 
     # Display filtered queries in a table format
     if dept_queries:
         query_table = []
         for i, query in enumerate(dept_queries):
-            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query']])
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query'],query['unresolved']])
 
-        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query"]
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query","Resolved"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
         st.table(query_df)
     
@@ -122,6 +125,10 @@ else:
                 server.login('srmpqh@gmail.com', 'fnsuhdjegwzzzurs')  
                 server.sendmail(msg['From'], msg['To'], msg.as_string())
                 server.quit()
+                 # Mark the query as resolved
+                query_df.loc[selected_row-1, 'Resolved'] = True
+                st.session_state['resolved_queries'].append(selected_query)
+
                 st.success("Email sent successfully!")
 
 

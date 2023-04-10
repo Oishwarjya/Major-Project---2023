@@ -4,6 +4,7 @@ import plotly.express as px
 import csv
 import json
 
+
 df = px.data.iris()
 
 @st.cache_data
@@ -53,6 +54,14 @@ if 'status' not in st.session_state:
     st.session_state["Name"]=""
     st.session_state["status"]="Fail"
     st.session_state["Type"]=""
+    
+def display_message(login_type):
+    if login_type == "Student":
+        st.info("Enter your registration number as unique_id and Date of birth as password in dd-mm-yyyy format")
+    elif login_type == "Resolver":
+        st.info("Enter your empid as unique_id and your email id as password to login")
+    elif login_type == "Department":
+        st.info("Enter your department id as unique_id and your password to login")
 
 with st.container():
     st.header("LOGIN")
@@ -60,18 +69,18 @@ with st.container():
         "Students, Admins and Department head logins"
     )
 
+
     with st.form("entry_form", clear_on_submit= True):
         login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department"))
+        display_message(login_type)        
         unique_id=st.text_input(label="UniqueID")  
         password=st.text_input("Password", type='password')
         submitted = st.form_submit_button("Confirm")
 
-        status_placeholder = st.empty() 
-
         st.session_state.status= "Fail"
 
         if login_type=="Student":
-            status_placeholder.info("Enter your registration number as unique_id and Date of birth as password in dd-mm-yyyy format")
+            
             def login():
                 f = open('db_student.json')
                 data = json.load(f)
@@ -106,7 +115,7 @@ with st.container():
 
 
         elif login_type=="Resolver":
-            status_placeholder.info("Enter your empid as unique_id and your email id as password to login")
+            
             # Define the login page
             def login():
                 f = open('db_resolver.json')
