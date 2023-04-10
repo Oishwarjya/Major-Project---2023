@@ -1,0 +1,34 @@
+{
+    "department": [
+        {
+            "name": "Dr. Revathi Venkatraman",
+            "designation": "Chairperson",
+            "email": "chair.sco.cet.ktr@srmist.edu.in",
+            "department": "SCO"
+        },
+        {
+            "name": "Dr. M. Pushpalatha",
+            "designation": "HOD - CTECH",
+            "email": "hod.ctech.ktr@srmist.edu.in",
+            "department": "Computing Technologies"
+        },
+        {
+            "name": "Dr. Annapurani",
+            "designation": "HOD-NWC",
+            "email": "hod.nwc.ktr@srmist.edu.in",
+            "department": "Networking and communication"
+        },
+        {
+            "name": "Dr. Lakshmi",
+            "designation": "HOD-DSBS",
+            "email": "hod.dsbs.ktr@srmist.edu.in",
+            "department": "DSBS"
+        },
+        {
+            "name": "Dr. Annie Uthra",
+            "designation": "HOD-CINTEL",
+            "email": "hod.cintel.ktr@srmist.edu.in",
+            "department": "Computing Intelligence"
+        }
+    ]
+}

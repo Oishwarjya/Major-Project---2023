@@ -50,6 +50,9 @@ st.sidebar.markdown("This website is made to enable easier query and resolution 
 if 'status' not in st.session_state:
     st.session_state["status"]="Fail"
     st.session_state["Type"]=""
+    st.session_state["Section"]=""
+    st.session_state["dept"]=""
+    st.session_state["Name"]=""
 
 with st.container():
     st.header("LOGIN")
@@ -57,7 +60,7 @@ with st.container():
         "Students, Admins and Department head logins"
     )
     with st.form("entry_form", clear_on_submit= True):
-        login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department"))
+        login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department", "Faculty Advisor"))
         unique_id=st.text_input(label="UniqueID")  
         password=st.text_input("Password", type='password')
         submitted = st.form_submit_button("Confirm")
@@ -102,15 +105,17 @@ with st.container():
         elif login_type=="Resolver":
             # Define the login page
             def login():
-                f = open('DB_combined.json')
+                f = open('db_resolver.json')
                 data = json.load(f)
                 if submitted and unique_id and password:
                     # Validate user credentials
                     for i in data['resolver']:
                         if i["empid"]==unique_id and i["email"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["name"]
+                            st.session_state["status"] = i["empid"]
+                            st.session_state["Name"] = i["name"]
                             st.session_state["Type"]="Resolver"
+                            st.session_state["dept"]=i["dept"]
                             return(i["name"], i["empid"]) 
                     
                 st.error("Invalid Credentials")
@@ -133,15 +138,50 @@ with st.container():
                     name, empid= login_result
                     resolver(name, empid)
 
+        elif login_type=="Faculty Advisor":
+            # Define the login page
+            def login():
+                f = open('db_faculty.json')
+                data = json.load(f)
+                if submitted and unique_id and password:
+                    # Validate user credentials
+                    for i in data['faculty']:
+                        if i["empid"]==unique_id and i["email"]==password:
+                            st.success("Login successful")
+                            st.session_state["status"] = i["empid"]
+                            st.session_state["Name"] = i["name"]
+                            st.session_state["Type"]="Faculty Advisor"
+                            st.session_state["Section"]=i["section"]
+                            return(i["name"], i["empid"]) 
+                    
+                st.error("Invalid Credentials")
+                st.session_state.status= "Fail"
+                f.close()           
+                return None
+                      
+            
+            # Define the main page
+            def faculty(name, empid):
+                
+                st.write("Employee Name:", name)
+                st.write("Employee Number:", empid)
+
+            # Run the app
+            if __name__ == "__main__":
+                login_result = login()
+                if login_result:
+                    name, empid= login_result
+                    faculty(name, empid)
+
         elif login_type=="Department":
             def login():
 
                 if submitted and unique_id and password:
                     # Validate user credentials
-                    f = open('DB_combined.json')
+                    f = open('db_department.json')
                     data = json.load(f)
                     for i in data['department']:
-                        if i["empid"]==unique_id and i["name"]==password:
+                        if i["email"]==unique_id and i["name"]==password:
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
                             st.session_state["Type"]="Department"
