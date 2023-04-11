@@ -1,15 +1,7 @@
 {
     "student": [
         {
-            "queries": [
-                {
-                    "student_name": "Tushar Sharma",
-                    "email_id": "ts6264@srmist.edu.in",
-                    "company": "5th Bridge data Technologies",
-                    "date": "2023-04-09",
-                    "query": "Test link not received"
-                }
-            ],
+            "queries": [],
             "regno": "RA2011003010001",
             "username": "Tushar Sharma",
             "dob": "07-07-2001",
@@ -24,16 +16,25 @@
             "dob": "22-11-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ob7029@srmist.edu.in "
+            "email": "ob7029@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Shreya ",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "Barclays",
+                    "date": "2023-04-12",
+                    "query": "test link not received",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA1911003010429",
             "username": "Shreya Shukla",
             "dob": "12-03-2001",
-            "dept": "Computational Intelligence",
+            "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ss5673@srmist.edu.in "
+            "email": "ss5673@srmist.edu.in"
         },
         {
             "queries": [],
@@ -42,7 +43,7 @@
             "dob": "08-08-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ma2814@srmist.edu.in "
+            "email": "ma2814@srmist.edu.in"
         },
         {
             "queries": [],
@@ -51,7 +52,7 @@
             "dob": "06-06-2002",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "aq0396@srmist.edu.in "
+            "email": "aq0396@srmist.edu.in"
         },
         {
             "queries": [],
@@ -60,7 +61,7 @@
             "dob": "29-04-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ms5477@srmist.edu.in "
+            "email": "ms5477@srmist.edu.in"
         },
         {
             "queries": [],
@@ -96,7 +97,7 @@
             "dob": "02-03-2003",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "as9607@srmist.edu.in "
+            "email": "as9607@srmist.edu.in"
         },
         {
             "queries": [],
@@ -114,7 +115,7 @@
             "dob": "21-09-2002",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ha8430@srmist.edu.in "
+            "email": "ha8430@srmist.edu.in"
         },
         {
             "queries": [],
@@ -168,7 +169,7 @@
             "dob": "01-08-2002",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "am7083@srmist.edu.in "
+            "email": "am7083@srmist.edu.in"
         },
         {
             "queries": [],
@@ -177,7 +178,7 @@
             "dob": "04-10-2002",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "kt6432@srmist.edu.in "
+            "email": "kt6432@srmist.edu.in"
         },
         {
             "queries": [],
@@ -186,7 +187,7 @@
             "dob": "25-03-2003",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "bg7419@srmist.edu.in "
+            "email": "bg7419@srmist.edu.in"
         },
         {
             "queries": [],
@@ -195,7 +196,7 @@
             "dob": "11-01-2003",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "kq8882@srmist.edu.in "
+            "email": "kq8882@srmist.edu.in"
         },
         {
             "queries": [],
@@ -240,7 +241,7 @@
             "dob": "16-02-2002",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "aa0786@srmist.edu.in "
+            "email": "aa0786@srmist.edu.in"
         },
         {
             "queries": [],

@@ -13,7 +13,7 @@ data = json.load(f)
 
 
 #@st.cache_data
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -92,7 +92,7 @@ else:
         st.write("A4")
 
    
-    any_other_query = st.radio("Any other query?", ["Yes", "No"], key="query")
+    any_other_query = st.radio("Any other query?", ["No", "Yes"], key="query")
 
     # Define custom CSS style to increase font size
     style = """
@@ -121,13 +121,6 @@ else:
     def add_query_to_student(student, query):
         student['queries'].append(query)
 
-    # Connect to the database
-    conn = sqlite3.connect('queries.db')
-    c = conn.cursor()
-
-    # Create the table if it doesn't exist
-    c.execute('''CREATE TABLE IF NOT EXISTS queries
-                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT)''')
 
     # Read the Excel file and extract the company names
     df = pd.read_excel('Company Database.xlsx')
@@ -140,13 +133,9 @@ else:
     company = st.selectbox("Select company", companies)
     date = st.date_input("Select date")
     query = st.text_area("Enter your query")
+    status="unresolved"
 
     if st.button("Submit"):
-        # Save the query data to the database
-        c.execute('INSERT INTO queries (student_name, email_id, company, date, query) VALUES (?, ?, ?, ?, ?)', (student_name, email_id, company, date, query))
-        conn.commit()
-        st.success("Query submitted successfully!")
-
         # Load the list of students from the JSON file
         students = load_students()
 
@@ -160,7 +149,8 @@ else:
                 "email_id": email_id,
                 "company": company,
                 "date": str(date),
-                "query": query
+                "query": query,
+                "status": status
             }
             add_query_to_student(student, query_data)
 

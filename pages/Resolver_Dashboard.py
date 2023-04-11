@@ -12,13 +12,14 @@ from email import encoders
 import sqlite3
 import json
 
+
 df = px.data.iris()
 
 # Load resolver data from JSON file
 with open('db_resolver.json') as f:
     resolver_data = json.load(f)
 
-@st.experimental_memo
+@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -66,7 +67,6 @@ else:
 
 
     logged_in_empid = st.session_state["status"]
-    print (logged_in_empid)
     
     resolver_dept = None
     for resolver in resolver_data['resolver']:
@@ -81,45 +81,51 @@ else:
     for student in students['student']:
         if student['dept'] == resolver_dept:
             dept_queries.extend(student['queries'])
+            
 
     # Display filtered queries in a table format
     if dept_queries:
         query_table = []
         for i, query in enumerate(dept_queries):
-            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query']])
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query'],query['status']])
 
-        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query"]
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query","Status"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
-        st.table(query_df)
-    
-    else:
-        st.write("No queries found for your department.")
-    
-    # Send email to selected query
-    if dept_queries:
+        query_table=st.table(query_df)
+
+        #send email to selected query
         selected_row = st.selectbox("Select the Query No you want to resolve", range(1, len(dept_queries) + 1))
         selected_query = dept_queries[selected_row-1]
+        st.dataframe(selected_query)
+        st.write("Send email to student to rectify query")
+        from_email = st.text_input("From", "srmpqh@gmail.com")
+        to = st.text_input("To", selected_query['email_id'])
+        subject = st.text_input("Subject", selected_query['query'])
+        message = st.text_area("Message")
 
-        if st.button("Details of selected Query"):
-            st.dataframe(selected_query)
-            st.write("Send email to student to rectify query")
-            from_email = st.text_input("From", "srmpqh@gmail.com")
-            to = st.text_input("To", selected_query['email_id'])
-            subject = st.text_input("Subject", selected_query['query'])
-            message = st.text_area("Message")
 
-            if st.button("Send Email"):
-                # Create email message
-                msg = MIMEMultipart()
-                msg['From'] = from_email
-                msg['To'] = to
-                msg['Subject'] = subject
-                msg.attach(MIMEText(message, 'plain'))
+        if st.button("Send Email"):
+            
+       
+            # Create email message
+            msg = MIMEMultipart()
+            msg['From'] = from_email
+            print(msg['From'])
+            msg['To'] = to
+            msg['Subject'] = subject
+            msg.attach(MIMEText(message, 'plain'))
 
-                # Send email
-                server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with SMTP server and port
-                server.starttls()
-                server.login('srmpqh@gmail.com', 'fnsuhdjegwzzzurs')  
-                server.sendmail(msg['From'], msg['To'], msg.as_string())
-                server.quit()
-                st.success("Email sent successfully!")
+            # Send email
+            server = smtplib.SMTP('smtp.gmail.com', 587)  # Replace with SMTP server and port
+            server.starttls()
+            server.login('srmpqh@gmail.com', 'fnsuhdjegwzzzurs')  
+            server.sendmail(msg['From'], msg['To'], msg.as_string())
+            server.quit()
+            st.success("Email sent successfully!")
+            selected_query['status']='Resolved'
+           
+    else:
+        st.write("No queries found for your department")
+
+                
+               
