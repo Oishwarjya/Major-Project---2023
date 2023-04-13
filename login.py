@@ -57,7 +57,7 @@ if 'status' not in st.session_state:
 with st.container():
     st.header("LOGIN")
     st.markdown(
-        "Students, Admins and Department head logins"
+        "Students, Resolver , Faculty Advisor and Department head logins"
     )
     with st.form("entry_form", clear_on_submit= True):
         login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department", "Faculty Advisor"))
