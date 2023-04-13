@@ -185,7 +185,7 @@ with st.container():
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
                             st.session_state["Type"]="Department"
-                            return(i["name"], i["empid"])
+                            return(i["name"], i["designation"])
                             
                     
                     st.error("Invalid Credentials")
@@ -195,15 +195,15 @@ with st.container():
                       
             
             # Define the main page
-            def dept(name, empid):
+            def dept(name, designation):
                 
                 st.write("Employee Name:", name)
-                st.write("Employee Number:", empid)
+                st.write("Designation:", designation)
                 #st.write("You have entered", st.session_state["status"])
 
             # Run the app
             if __name__ == "__main__":
                 login_result = login()
                 if login_result:
-                    name, empid = login_result
-                    dept(name,empid)     
+                    name, designation = login_result
+                    dept(name,designation)     

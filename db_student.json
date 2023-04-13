@@ -10,7 +10,16 @@
             "email": "ts6264@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Oishwarjya",
+                    "email_id": "ob7029@srmist.edu.in",
+                    "company": "Wells Fargo",
+                    "date": "2023-04-12",
+                    "query": "offer letter not received",
+                    "status": "Resolved"
+                }
+            ],
             "regno": "RA1911003010688",
             "username": "Oishwarjya Banerjee",
             "dob": "22-11-2001",
@@ -26,7 +35,23 @@
                     "company": "Barclays",
                     "date": "2023-04-12",
                     "query": "test link not received",
+                    "status": "Resolved"
+                },
+                {
+                    "student_name": "Shreya Shukla",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "Accenture",
+                    "date": "2023-04-12",
+                    "query": "CTC breakup not given",
                     "status": "unresolved"
+                },
+                {
+                    "student_name": "Shreya Shukla",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "Accenture",
+                    "date": "2023-04-12",
+                    "query": "test link not received",
+                    "status": "Resolved"
                 }
             ],
             "regno": "RA1911003010429",

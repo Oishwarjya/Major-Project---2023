@@ -105,58 +105,58 @@ else:
 
     # Render custom CSS
     st.markdown(style, unsafe_allow_html=True)
+    if any_other_query == "Yes":
     
-    # Define the function to load student data from the JSON file
-    def load_students():
-        with open('db_student.json', 'r') as f:
-            students = json.load(f)
-        return students
+        # Define the function to load student data from the JSON file
+        def load_students():
+            with open('db_student.json', 'r') as f:
+                students = json.load(f)
+            return students
 
-    # Define the function to save student data to the JSON file
-    def save_students(students):
-        with open('db_student.json', 'w') as f:
-            json.dump(students, f, indent=4)
+        # Define the function to save student data to the JSON file
+        def save_students(students):
+            with open('db_student.json', 'w') as f:
+                json.dump(students, f, indent=4)
 
-    # Define the function to add a query to a student's record
-    def add_query_to_student(student, query):
-        student['queries'].append(query)
-
-
-    # Read the Excel file and extract the company names
-    df = pd.read_excel('Company Database.xlsx')
-    companies = list(df['Company Name'])
+        # Define the function to add a query to a student's record
+        def add_query_to_student(student, query):
+            student['queries'].append(query)
 
 
-    # Display the input fields
-    student_name = st.text_input("Enter your name")
-    email_id = st.text_input("Enter your email id")
-    company = st.selectbox("Select company", companies)
-    date = st.date_input("Select date")
-    query = st.text_area("Enter your query")
-    status="unresolved"
+        # Read the Excel file and extract the company names
+        df = pd.read_excel('Company Database.xlsx')
+        companies = list(df['Company Name'])
 
-    if st.button("Submit"):
-        # Load the list of students from the JSON file
-        students = load_students()
 
-        # Find the student record based on the email ID
-        student = next((s for s in students['student'] if s['email'] == email_id), None)
+        # Display the input fields
+        student_name = st.text_input("Enter your name")
+        email_id = st.text_input("Enter your email id")
+        company = st.selectbox("Select company", companies)
+        date = st.date_input("Select date")
+        query = st.text_area("Enter your query")
+        status="unresolved"
 
-        if student:
-            # Add the query to the student's record
-            query_data = {
-                "student_name": student_name,
-                "email_id": email_id,
-                "company": company,
-                "date": str(date),
-                "query": query,
-                "status": status
-            }
-            add_query_to_student(student, query_data)
+        if st.button("Submit"):
+            # Load the list of students from the JSON file
+            students = load_students()
 
-            # Save the updated student data to the JSON file
-            save_students(students)
+            # Find the student record based on the email ID
+            student = next((s for s in students['student'] if s['email'] == email_id), None)
 
-            st.success("Query added to student record successfully!")
-        else:
-            st.error("No student record found for this email ID.")
+            if student:
+                # Add the query to the student's record
+                query_data = {
+                    "student_name": student_name,
+                    "email_id": email_id,
+                    "company": company,
+                    "date": str(date),
+                    "query": query,
+                    "status": status
+                }
+                add_query_to_student(student, query_data)
+
+                # Save the updated student data to the JSON file
+                save_students(students)
+                st.success("Query added to student record successfully!")
+            else:
+                st.error("No student record found for this email ID.")

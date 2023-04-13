@@ -89,7 +89,7 @@ else:
         for i, query in enumerate(dept_queries):
             query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query'],query['status']])
 
-        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query","Status"]
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query", "Status"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
         query_table=st.table(query_df)
 
@@ -106,7 +106,6 @@ else:
 
         if st.button("Send Email"):
             
-       
             # Create email message
             msg = MIMEMultipart()
             msg['From'] = from_email
@@ -122,7 +121,16 @@ else:
             server.sendmail(msg['From'], msg['To'], msg.as_string())
             server.quit()
             st.success("Email sent successfully!")
-            selected_query['status']='Resolved'
+
+            # Update status in DataFrame
+            dept_queries[selected_row - 1]['status'] = 'Resolved'
+            query_df.at[selected_row - 1, 'Status'] = 'Resolved'
+
+            # Save the updated students JSON to the file
+            with open('db_student.json', 'w') as f:
+                json.dump(students, f, indent=4)
+
+            
            
     else:
         st.write("No queries found for your department")

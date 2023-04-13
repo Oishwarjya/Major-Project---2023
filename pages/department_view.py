@@ -49,7 +49,7 @@ elif st.session_state['Type']!= "Department":
     st.title("INVALID LOGIN!!")
 
 else:
-    st.write("Department Head ID: ", st.session_state["status"])
+    st.write("Department Head Name: ", st.session_state["status"])
     st.title("DEPARTMENT LEVEL DASHBOARD")
     # Read data from files
     with open('db_resolver.json', 'r') as f:
@@ -71,8 +71,8 @@ else:
         dept_queries = [query for student in students['student'] for query in student['queries'] if student['dept'] == dept]
 
         # Count the number of resolved and unresolved queries
-        resolved_count = sum([1 for query in dept_queries if  query.get('resolved', False)])
-        unresolved_count = sum([1 for query in dept_queries if not  query.get('resolved', False)])
+        resolved_count = sum([1 for query in dept_queries if  query.get('status', '') == 'Resolved'])
+        unresolved_count = sum([1 for query in dept_queries if query.get('status', '') != 'Resolved'])
 
         # Increment the resolved and unresolved counts for the current department
         resolved_counts[i] = resolved_count
