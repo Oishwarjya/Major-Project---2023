@@ -9,7 +9,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.utils import COMMASPACE
 from email import encoders
-import sqlite3
 import json
 
 df = px.data.iris()
@@ -81,14 +80,19 @@ else:
     for student in students['student']:
         if student['dept'] == resolver_dept:
             dept_queries.extend(student['queries'])
+            for query in student['queries']:
+            # Initially mark all queries as unresolved
+                query['resolved'] = False
+                dept_queries.append(query)
+                dept_queries.extend(student['queries'])
 
     # Display filtered queries in a table format
     if dept_queries:
         query_table = []
         for i, query in enumerate(dept_queries):
-            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query']])
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query'],query['unresolved']])
 
-        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query"]
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query", "Resolved"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
         st.table(query_df)
     

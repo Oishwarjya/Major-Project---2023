@@ -7,7 +7,8 @@
                     "email_id": "ts6264@srmist.edu.in",
                     "company": "5th Bridge data Technologies",
                     "date": "2023-04-09",
-                    "query": "Test link not received"
+                    "query": "Test link not received",
+                    "status": "unresolved"
                 }
             ],
             "regno": "RA2011003010001",
@@ -18,13 +19,22 @@
             "email": "ts6264@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Oishwarjya Banerjee",
+                    "email_id": "ob7029@srmist.edu.in",
+                    "company": "Wells Fargo",
+                    "date": "2023-04-12",
+                    "query": "PPO not received.",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA1911003010688",
             "username": "Oishwarjya Banerjee",
             "dob": "22-11-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ob7029@srmist.edu.in "
+            "email": "ob7029@srmist.edu.in"
         },
         {
             "queries": [],
@@ -33,7 +43,7 @@
             "dob": "12-03-2001",
             "dept": "Computational Intelligence",
             "section": "A1-\u00ce\u00b1",
-            "email": "ss5673@srmist.edu.in "
+            "email": "ss5673@srmist.edu.in"
         },
         {
             "queries": [],
@@ -42,7 +52,7 @@
             "dob": "08-08-2001",
             "dept": "Computing Technologies",
             "section": "A1-\u00ce\u00b1",
-            "email": "ma2814@srmist.edu.in "
+            "email": "ma2814@srmist.edu.in"
         },
         {
             "queries": [],
@@ -13545,7 +13555,16 @@
             "email": "by3715@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Aastha Aggarwal",
+                    "email_id": "aa9959@srmist.edu.in",
+                    "company": "Wells Fargo",
+                    "date": "2023-04-12",
+                    "query": "PPO not received.",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA2011026010297",
             "username": "Aastha Aggarwal",
             "dob": "17-09-2002",
@@ -18225,7 +18244,16 @@
             "email": "tv5056@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Aditya Vikram Singh",
+                    "email_id": "as3893@srmist.edu.in",
+                    "company": "Wells Fargo",
+                    "date": "2023-04-12",
+                    "query": "PPO not received.",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA2011030010018",
             "username": "Aditya Vikram Singh",
             "dob": "07-01-2002",
@@ -25830,7 +25858,16 @@
             "email": "bb4649@srmist.edu.in"
         },
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Preetraj Haldar",
+                    "email_id": "ph1332@srmist.du.in",
+                    "company": "5th Bridge data Technologies",
+                    "date": "2023-04-09",
+                    "query": "Test link not received",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA2011050010077",
             "username": "Preetraj Haldar",
             "dob": "30-08-2002",

@@ -53,6 +53,13 @@ if 'status' not in st.session_state:
     st.session_state["Section"]=""
     st.session_state["dept"]=""
     st.session_state["Name"]=""
+def display_message(login_type):
+    if login_type == "Student":
+        st.info("Enter your registration number as unique_id and Date of birth as password in dd-mm-yyyy format")
+    elif login_type == "Resolver":
+        st.info("Enter your empid as unique_id and your email id as password to login")
+    elif login_type == "Department":
+        st.info("Enter your department id as unique_id and your password to login")
 
 with st.container():
     st.header("LOGIN")
@@ -185,7 +192,7 @@ with st.container():
                             st.success("Login successful")
                             st.session_state["status"] = i["name"]
                             st.session_state["Type"]="Department"
-                            return(i["name"], i["empid"])
+                            return(i["name"], i["designation"])
                             
                     
                     st.error("Invalid Credentials")
@@ -205,5 +212,5 @@ with st.container():
             if __name__ == "__main__":
                 login_result = login()
                 if login_result:
-                    name, empid = login_result
-                    dept(name,empid)     
+                    name, designation = login_result
+                    dept(name,designation)     

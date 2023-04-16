@@ -61,6 +61,13 @@ else:
     #student details
     #st.markdown("<div style='display:flex; justify-content:space-between;'><p style='text-align:left;font-size:20px;'> Student Name: </p><p style='text-align:right;font-size:20px;'> Registration Number: </p></div>",unsafe_allow_html=True)
     st.write("Student Name: ", st.session_state["status"])
+    
+    # Define the function to load student data from the JSON file
+    def load_students():
+        with open('db_student.json', 'r') as f:
+            students = json.load(f)
+        return students
+    
     for i in data['student']:
         if st.session_state["status"] == i['regno']:
             st.write("Student Number: ", i['username'])
@@ -105,48 +112,39 @@ else:
 
     # Render custom CSS
     st.markdown(style, unsafe_allow_html=True)
+    if any_other_query == "Yes":
     
-    # Define the function to load student data from the JSON file
-    def load_students():
-        with open('db_student.json', 'r') as f:
-            students = json.load(f)
-        return students
+        # Define the function to load student data from the JSON file
+        def load_students():
+            with open('db_student.json', 'r') as f:
+                students = json.load(f)
+            return students
 
-    # Define the function to save student data to the JSON file
-    def save_students(students):
-        with open('db_student.json', 'w') as f:
-            json.dump(students, f, indent=4)
+        # Define the function to save student data to the JSON file
+        def save_students(students):
+            with open('db_student.json', 'w') as f:
+                json.dump(students, f, indent=4)
 
-    # Define the function to add a query to a student's record
-    def add_query_to_student(student, query):
-        student['queries'].append(query)
-
-    # Connect to the database
-    conn = sqlite3.connect('queries.db')
-    c = conn.cursor()
-
-    # Create the table if it doesn't exist
-    c.execute('''CREATE TABLE IF NOT EXISTS queries
-                (student_name TEXT, email_id TEXT, company TEXT, date DATE, query TEXT)''')
-
-    # Read the Excel file and extract the company names
-    df = pd.read_excel('Company Database.xlsx')
-    companies = list(df['Company Name'])
+        # Define the function to add a query to a student's record
+        def add_query_to_student(student, query):
+            student['queries'].append(query)
 
 
-    # Display the input fields
-    student_name = st.text_input("Enter your name")
-    email_id = st.text_input("Enter your email id")
-    company = st.selectbox("Select company", companies)
-    date = st.date_input("Select date")
-    query = st.text_area("Enter your query")
+        # Read the Excel file and extract the company names
+        df = pd.read_excel('Company Database.xlsx')
+        companies = list(df['Company Name'])
+
+
+        # Display the input fields
+        student_name = st.text_input("Enter your name")
+        email_id = st.text_input("Enter your email id")
+        company = st.selectbox("Select company", companies)
+        date = st.date_input("Select date")
+        query = st.text_area("Enter your query")
+        status="unresolved"
+    
 
     if st.button("Submit"):
-        # Save the query data to the database
-        c.execute('INSERT INTO queries (student_name, email_id, company, date, query) VALUES (?, ?, ?, ?, ?)', (student_name, email_id, company, date, query))
-        conn.commit()
-        st.success("Query submitted successfully!")
-
         # Load the list of students from the JSON file
         students = load_students()
 
@@ -160,7 +158,8 @@ else:
                 "email_id": email_id,
                 "company": company,
                 "date": str(date),
-                "query": query
+                "query": query,
+                "status":status
             }
             add_query_to_student(student, query_data)
 

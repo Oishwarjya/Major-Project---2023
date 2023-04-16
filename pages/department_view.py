@@ -3,6 +3,7 @@ import streamlit as st
 import plotly.express as px
 import matplotlib.pyplot as plt
 import pandas as pd
+import json
 
 df = px.data.iris()
 
@@ -48,28 +49,89 @@ elif st.session_state['Type']!= "Department":
     st.title("INVALID LOGIN!!")
 
 else:
-    st.write("Department Head ID: ", st.session_state["status"])
+    st.write("Department Head Name: ", st.session_state["status"])
     st.title("DEPARTMENT LEVEL DASHBOARD")
-    section_names = ['A1', 'B1', 'C1', 'D1', 'E1', 'F1','G1','H1','I1','J1','K1','L1','M1','N1','O1']
-    resolved = [10, 8, 12, 9, 14, 11, 7, 15, 12, 13, 8, 10, 11, 9, 7]
-    pending = [5, 4, 6, 7, 2, 5, 9, 1, 4, 3, 8, 6, 5, 7, 9]
+    # Read data from files
+    with open('db_resolver.json', 'r') as f:
+        resolver_data = json.load(f)
 
-    # Set up the plot
-    fig, ax = plt.subplots(figsize=(12, 8))
-    ax.set_title('Queries by section')
+    with open('db_student.json', 'r') as f:
+        students = json.load(f)
 
-    # Plot the bars side by side
-    bar_width = 0.4
-    bar_pos = list(range(len(section_names)))
-    ax.bar(bar_pos, resolved, width=bar_width, label='Resolved')
-    ax.bar([p + bar_width for p in bar_pos], pending, width=bar_width, label='Pending')
+    # Get all department names
+    dept_names = ["Computing Technologies", "Networking and Communications", "Computational Intelligence", "Data Science and Business Systems"]
 
-    # Set the x-axis labels
-    ax.set_xticks([p + bar_width / 2 for p in bar_pos])
-    ax.set_xticklabels(section_names, rotation=45, ha='right')
+    # Initialize resolved and unresolved counts for all departments
+    resolved_counts = [0] * len(dept_names)
+    unresolved_counts = [0] * len(dept_names)
 
-    # Set the legend
+
+    col1, col2 = st.columns(2)
+    Resolved_Count=[]
+    Unresolved_Count=[]
+    # Loop over all departments
+    for i, dept in enumerate(dept_names):
+        # Filter queries for the current department
+        dept_queries = [query for student in students['student'] for query in student['queries'] if student['dept'] == dept]
+
+        # Count the number of resolved and unresolved queries
+        resolved_count = sum([1 for query in dept_queries if  query.get('status', '') == 'Resolved'])
+        unresolved_count = sum([1 for query in dept_queries if query.get('status', '') != 'Resolved'])
+
+        # Increment the resolved and unresolved counts for the current department
+        resolved_counts[i] = resolved_count
+        unresolved_counts[i] = unresolved_count
+        Resolved_Count.append(resolved_count)
+        Unresolved_Count.append(unresolved_count)
+    
+    for i in range(4):
+        if i%2==0:
+            with col1:
+                # Generate pie chart
+                fig, ax = plt.subplots()
+                ax.pie([Resolved_Count[i], Unresolved_Count[i]], labels=["Resolved", "Unresolved"], autopct="%1.1f%%")
+                if i == 0:
+                    ax.set_title("Computing Technologies Queries")
+                    st.pyplot(fig)
+                elif i==1:
+                    ax.set_title("Networking and Commubication Queries")
+                    st.pyplot(fig)
+                elif i==2:
+                    ax.set_title("Computational Intelligence Queries")
+                    st.pyplot(fig)
+                elif i==3:
+                    ax.set_title("Data Science & Business Systems Queries")
+                    st.pyplot(fig)
+        else:
+                with col2:
+                # Generate pie chart
+                    fig, ax = plt.subplots()
+                    ax.pie([Resolved_Count[i], Unresolved_Count[i]], labels=["Resolved", "Unresolved"], autopct="%1.1f%%")
+                    if i == 0:
+                        ax.set_title("Computing Technologies Queries")
+                        st.pyplot(fig)
+                    elif i==1:
+                        ax.set_title("Networking and Commubication Queries")
+                        st.pyplot(fig)
+                    elif i==2:
+                        ax.set_title("Computational Intelligence Queries")
+                        st.pyplot(fig)
+                    elif i==3:
+                        ax.set_title("Data Science & Business Systems Queries")
+                        st.pyplot(fig)
+ 
+
+    department_names = ["CTech", "NWC", "CINTEL", "DSBS"]        
+    # Generate combined bar graph
+    fig, ax = plt.subplots()
+    bar_width = 0.35
+    x = range(len(department_names))
+    rects1 = ax.bar(x, resolved_counts, bar_width, label='Resolved')
+    rects2 = ax.bar([i + bar_width for i in x], unresolved_counts, bar_width, label='Unresolved')
+    ax.set_xlabel('Department')
+    ax.set_ylabel('Count')
+    ax.set_xticks([i + bar_width for i in x])
+    ax.set_xticklabels(department_names)
     ax.legend()
-
-    # Show the plot
+    fig.tight_layout()
     st.pyplot(fig)
