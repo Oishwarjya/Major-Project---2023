@@ -16,8 +16,27 @@
                     "email_id": "ob7029@srmist.edu.in",
                     "company": "Wells Fargo",
                     "date": "2023-04-12",
+                    "subject": "test link",
                     "query": "offer letter not received",
                     "status": "Resolved"
+                },
+                {
+                    "student_name": "Oishwarjya",
+                    "email_id": "ob7029@srmist.edu.in",
+                    "company": "Adobe",
+                    "date": "2023-04-16",
+                    "subject": "test link",
+                    "query": "CTC breakup not mentioned",
+                    "status": "unresolved"
+                },
+                {
+                    "student_name": "Oishwarjya",
+                    "email_id": "ob7029@srmist.edu.in",
+                    "company": "Accenture",
+                    "date": "2023-04-16",
+                    "subject": "test link",
+                    "query": "interview link not active",
+                    "status": "unresolved"
                 }
             ],
             "regno": "RA1911003010688",
@@ -34,24 +53,18 @@
                     "email_id": "ss5673@srmist.edu.in",
                     "company": "Barclays",
                     "date": "2023-04-12",
+                    "subject": "test link",
                     "query": "test link not received",
                     "status": "Resolved"
                 },
                 {
                     "student_name": "Shreya Shukla",
                     "email_id": "ss5673@srmist.edu.in",
-                    "company": "Accenture",
-                    "date": "2023-04-12",
-                    "query": "CTC breakup not given",
+                    "company": "AB Inbev",
+                    "date": "2023-04-17",
+                    "subject": "offer letter issue",
+                    "query": "respected sir, \nwe did internship for 6 months but no job given.",
                     "status": "unresolved"
-                },
-                {
-                    "student_name": "Shreya Shukla",
-                    "email_id": "ss5673@srmist.edu.in",
-                    "company": "Accenture",
-                    "date": "2023-04-12",
-                    "query": "test link not received",
-                    "status": "Resolved"
                 }
             ],
             "regno": "RA1911003010429",

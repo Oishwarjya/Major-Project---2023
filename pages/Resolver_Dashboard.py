@@ -87,20 +87,20 @@ else:
     if dept_queries:
         query_table = []
         for i, query in enumerate(dept_queries):
-            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'], query['query'],query['status']])
+            query_table.append([f"Query {i+1}", query['student_name'], query['email_id'], query['company'], query['date'],query['subject'],query['status']])
 
-        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Query", "Status"]
+        query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Subject", "Status"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
         query_table=st.table(query_df)
 
         #send email to selected query
-        selected_row = st.selectbox("Select the Query No you want to resolve", range(1, len(dept_queries) + 1))
+        selected_row = st.selectbox("Select the Query No. you want to resolve", range(1, len(dept_queries) + 1))
         selected_query = dept_queries[selected_row-1]
         st.dataframe(selected_query)
         st.write("Send email to student to rectify query")
         from_email = st.text_input("From", "srmpqh@gmail.com")
         to = st.text_input("To", selected_query['email_id'])
-        subject = st.text_input("Subject", selected_query['query'])
+        subject = st.text_input("Subject", selected_query['subject'])
         message = st.text_area("Message")
 
 

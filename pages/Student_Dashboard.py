@@ -60,10 +60,10 @@ else:
     st.markdown("<h1 style='color:#202A44;font-family: Cooper Black;font-size:30px;'>HAVE A PLACEMENT RELATED QUERY ? RESOLVE IT WITH SRM PQH !</h1>", unsafe_allow_html=True)  
     #student details
     #st.markdown("<div style='display:flex; justify-content:space-between;'><p style='text-align:left;font-size:20px;'> Student Name: </p><p style='text-align:right;font-size:20px;'> Registration Number: </p></div>",unsafe_allow_html=True)
-    st.write("Student Name: ", st.session_state["status"])
+    st.write("Student Name: ", st.session_state["name"])
     for i in data['student']:
         if st.session_state["status"] == i['regno']:
-            st.write("Student Number: ", i['username'])
+            st.write("Student Registration Number: ", st.session_state['status'])
     st.markdown("<div style='text-align:center;color:#202A44;font-family: Cooper Black;font-size:23px;'>RAISE YOUR QUERY </div>", unsafe_allow_html=True)
 
 
@@ -127,21 +127,36 @@ else:
         df = pd.read_excel('Company Database.xlsx')
         companies = list(df['Company Name'])
 
+        # Load the list of students from the JSON file
+        students = load_students()
+
+        # Find the student record based on the registration number in session state
+        student = next((s for s in students['student'] if s['regno'] == st.session_state['status']), None)
+
+        # Display the table of the student's queries
+        if student:
+            st.write("Below are the queries that you have submiited")
+            queries = student.get('queries', [])
+            if queries:
+                query_table = []
+                for i, query in enumerate(queries):
+                    query_table.append([f"Query {i+1}", query['company'], query['date'], query['subject'], query['status']])
+                st.table(pd.DataFrame(query_table, columns=["Query", "Company", "Date", "subject", "Status"]))
+            else:
+                st.write("No queries found.")
+        else:
+            st.error("No student record found for this registration number.")
 
         # Display the input fields
         student_name = st.text_input("Enter your name")
         email_id = st.text_input("Enter your email id")
         company = st.selectbox("Select company", companies)
         date = st.date_input("Select date")
+        subject= st.text_input("Enter the subject for your query")
         query = st.text_area("Enter your query")
         status="unresolved"
 
         if st.button("Submit"):
-            # Load the list of students from the JSON file
-            students = load_students()
-
-            # Find the student record based on the email ID
-            student = next((s for s in students['student'] if s['email'] == email_id), None)
 
             if student:
                 # Add the query to the student's record
@@ -150,6 +165,7 @@ else:
                     "email_id": email_id,
                     "company": company,
                     "date": str(date),
+                    "subject":subject,
                     "query": query,
                     "status": status
                 }
@@ -160,3 +176,11 @@ else:
                 st.success("Query added to student record successfully!")
             else:
                 st.error("No student record found for this email ID.")
+
+
+            
+
+
+            
+
+        

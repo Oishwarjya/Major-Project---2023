@@ -61,7 +61,7 @@ with st.container():
     )
     with st.form("entry_form", clear_on_submit= True):
         login_type=st.selectbox("Login Type", ("Student", "Resolver", "Department", "Faculty Advisor"))
-        unique_id=st.text_input(label="UniqueID")  
+        unique_id=st.text_input(label="UNIQUE ID: Reg. No./ Employee ID/ Email ID for HOD")  
         password=st.text_input("Password", type='password')
         submitted = st.form_submit_button("Confirm")
 
@@ -77,7 +77,8 @@ with st.container():
                     for i in data['student']:
                         if i["regno"]==unique_id and i["dob"]==password:
                             st.success("Login successful")
-                            st.session_state["status"] = i["username"]
+                            st.session_state["status"] = i["regno"]
+                            st.session_state["name"]=i["username"]
                             st.session_state["Type"]="Student"
                             return(i["username"], i["regno"])  
                     
@@ -92,6 +93,7 @@ with st.container():
                 
                 st.write("Student Name:", name)
                 st.write("Register Number:", reg_num)
+                st.info("Now you can go to Student Dashboard")
                 #st.write("You have entered", st.session_state["status"])
 
             # Run the app
