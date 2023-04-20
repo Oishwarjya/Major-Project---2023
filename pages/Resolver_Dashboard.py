@@ -59,10 +59,10 @@ if st.session_state["status"] == "Fail":
 elif st.session_state['Type']!= "Resolver":
     st.title("INVALID LOGIN!!")
 
-else:
-    st.write("Resolver Name: ", st.session_state["Name"])  
-    st.write("Resolver emp_id: ", st.session_state["status"])   
+else:  
     st.title("Resolver Dashboard")
+    st.write("Resolver Name: ", st.session_state["Name"])  
+    st.write("Resolver emp_id: ", st.session_state["status"])
     st.write("Below are the queries that need to be resolved")
 
 
@@ -82,7 +82,6 @@ else:
         if student['dept'] == resolver_dept:
             dept_queries.extend(student['queries'])
             
-
     # Display filtered queries in a table format
     if dept_queries:
         query_table = []
@@ -91,13 +90,17 @@ else:
 
         query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Subject", "Status"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
-        query_table=st.table(query_df)
+        query_table=st.dataframe(query_df, height=200)
 
         #send email to selected query
         selected_row = st.selectbox("Select the Query No. you want to resolve", range(1, len(dept_queries) + 1))
         selected_query = dept_queries[selected_row-1]
         st.dataframe(selected_query)
-        st.write("Send email to student to rectify query")
+        # display query message in detail
+        st.write("Query message in detail")
+        st.code(selected_query['query'], language='text')
+
+        st.markdown("#### Send email to student to rectify query ")
         from_email = st.text_input("From", "srmpqh@gmail.com")
         to = st.text_input("To", selected_query['email_id'])
         subject = st.text_input("Subject", selected_query['subject'])

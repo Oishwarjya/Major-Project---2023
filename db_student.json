@@ -65,6 +65,15 @@
                     "subject": "offer letter issue",
                     "query": "respected sir, \nwe did internship for 6 months but no job given.",
                     "status": "unresolved"
+                },
+                {
+                    "student_name": "Shreya Shukla",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "Bajaj Finserv",
+                    "date": "2023-04-18",
+                    "subject": "offer letter issue",
+                    "query": "we haven't received the offer letter and no information about joining date given till now",
+                    "status": "unresolved"
                 }
             ],
             "regno": "RA1911003010429",

@@ -49,8 +49,9 @@ elif st.session_state['Type']!= "Department":
     st.title("INVALID LOGIN!!")
 
 else:
-    st.write("Department Head Name: ", st.session_state["status"])
+    
     st.title("DEPARTMENT LEVEL DASHBOARD")
+    st.write("Department Head Name: ", st.session_state["status"])
     # Read data from files
     with open('db_resolver.json', 'r') as f:
         resolver_data = json.load(f)
@@ -65,6 +66,10 @@ else:
     resolved_counts = [0] * len(dept_names)
     unresolved_counts = [0] * len(dept_names)
 
+
+    col1, col2 = st.columns(2)
+    Resolved_Count=[]
+    Unresolved_Count=[]
     # Loop over all departments
     for i, dept in enumerate(dept_names):
         # Filter queries for the current department
@@ -77,23 +82,57 @@ else:
         # Increment the resolved and unresolved counts for the current department
         resolved_counts[i] = resolved_count
         unresolved_counts[i] = unresolved_count
+        Resolved_Count.append(resolved_count)
+        Unresolved_Count.append(unresolved_count)
+    
+    for i in range(4):
+        if i%2==0:
+            with col1:
+                # Generate pie chart
+                fig, ax = plt.subplots()
+                ax.pie([Resolved_Count[i], Unresolved_Count[i]], labels=["Resolved", "Unresolved"], autopct="%1.1f%%")
+                if i == 0:
+                    ax.set_title("Computing Technologies Queries")
+                    st.pyplot(fig)
+                elif i==1:
+                    ax.set_title("Networking and Commubication Queries")
+                    st.pyplot(fig)
+                elif i==2:
+                    ax.set_title("Computational Intelligence Queries")
+                    st.pyplot(fig)
+                elif i==3:
+                    ax.set_title("Data Science & Business Systems Queries")
+                    st.pyplot(fig)
+        else:
+                with col2:
+                # Generate pie chart
+                    fig, ax = plt.subplots()
+                    ax.pie([Resolved_Count[i], Unresolved_Count[i]], labels=["Resolved", "Unresolved"], autopct="%1.1f%%")
+                    if i == 0:
+                        ax.set_title("Computing Technologies Queries")
+                        st.pyplot(fig)
+                    elif i==1:
+                        ax.set_title("Networking and Commubication Queries")
+                        st.pyplot(fig)
+                    elif i==2:
+                        ax.set_title("Computational Intelligence Queries")
+                        st.pyplot(fig)
+                    elif i==3:
+                        ax.set_title("Data Science & Business Systems Queries")
+                        st.pyplot(fig)
+ 
 
-        # Generate pie chart
-        fig, ax = plt.subplots()
-        ax.pie([resolved_count, unresolved_count], labels=["Resolved", "Unresolved"], autopct="%1.1f%%")
-        ax.set_title(f"{dept} Queries")
-        st.pyplot(fig)
-
+    department_names = ["CTech", "NWC", "CINTEL", "DSBS"]        
     # Generate combined bar graph
     fig, ax = plt.subplots()
     bar_width = 0.35
-    x = range(len(dept_names))
+    x = range(len(department_names))
     rects1 = ax.bar(x, resolved_counts, bar_width, label='Resolved')
     rects2 = ax.bar([i + bar_width for i in x], unresolved_counts, bar_width, label='Unresolved')
     ax.set_xlabel('Department')
     ax.set_ylabel('Count')
     ax.set_xticks([i + bar_width for i in x])
-    ax.set_xticklabels(dept_names)
+    ax.set_xticklabels(department_names)
     ax.legend()
     fig.tight_layout()
     st.pyplot(fig)
