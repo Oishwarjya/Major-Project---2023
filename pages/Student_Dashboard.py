@@ -47,7 +47,7 @@ right: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
+st.sidebar.image("srm.png", use_column_width=True)
 print(st.session_state)
 
 if st.session_state.status == "Fail":

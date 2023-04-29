@@ -52,6 +52,7 @@ right: 2rem;
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
+st.sidebar.image("srm.png", use_column_width=True)
 
 if st.session_state["status"] == "Fail":
     st.title("INVALID LOGIN!!")
@@ -91,6 +92,17 @@ else:
         query_table_columns = ["Query No.", "Name", "Email ID", "Company", "Date", "Subject", "Status"]
         query_df = pd.DataFrame(query_table, columns=query_table_columns)
         query_table=st.dataframe(query_df, height=200)
+
+        # Count the number of resolved and unresolved queries
+        num_resolved = sum(1 for query in dept_queries if query['status'] == 'Resolved')
+        num_unresolved = len(dept_queries) - num_resolved
+
+        # Display the count of resolved and unresolved queries in two highlighted boxes
+        col1, col2 = st.columns(2)
+        with col1:
+            st.info(f"Resolved queries: {num_resolved}")
+        with col2:
+            st.error(f"Unresolved queries: {num_unresolved}")
 
         #send email to selected query
         selected_row = st.selectbox("Select the Query No. you want to resolve", range(1, len(dept_queries) + 1))

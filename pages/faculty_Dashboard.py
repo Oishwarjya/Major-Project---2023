@@ -51,6 +51,7 @@ right: 2rem;
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
+st.sidebar.image("srm.png", use_column_width=True)
 
 if st.session_state["status"] == "Fail":
     st.title("INVALID LOGIN!!")
