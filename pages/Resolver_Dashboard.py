@@ -144,7 +144,6 @@ else:
             # Save the updated students JSON to the file
             with open('db_student.json', 'w') as f:
                 json.dump(students, f, indent=4)
-
             
            
     else:

@@ -10,7 +10,7 @@
         "responsibility": "SCO Placement Coordinator"
       },
       {
-        "empid": 102238,
+        "empid": "102238",
         "name": "Mr. Prakash U M",
         "designation": "Assistant Professor",
         "contactno": 9751115189,
@@ -19,7 +19,7 @@
         "responsibility": "SCO Placement Coordinator"
       },
       {
-        "empid": 100189,
+        "empid": "100189",
         "name": "Dr. R.Jebakumar",
         "designation": "Associate professor",
         "contactno": 9444122318,
@@ -28,7 +28,7 @@
         "responsibility": "Computing Technologies Year Coordinator (2019-2023)"
       },
       {
-        "empid": 102602,
+        "empid": "102602",
         "name": "Dr.B.Sivakumar",
         "designation": "Associate professor",
         "contactno": 9884772324,
@@ -37,7 +37,7 @@
         "responsibility": "Computing Technologies Year Coordinator (2019-2023)"
       },
       {
-        "empid": 100665,
+        "empid": "100665",
         "name": "Dr.V.Deeban Chakravarthy",
         "designation": "Assistant Professor",
         "contactno": 9003387773,
@@ -46,7 +46,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2019-2023)"
       },
       {
-        "empid": 102463,
+        "empid": "102463",
         "name": "Dr.J. Kalaivani",
         "designation": "Assistant Professor",
         "contactno": 9790273451,
@@ -55,7 +55,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2019-2023)"
       },
       {
-        "empid": 100394,
+        "empid": "100394",
         "name": "Dr.P.Selvaraj",
         "designation": "Associate Professor",
         "contactno": 9884470015,
@@ -64,7 +64,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2019-2023)"
       },
       {
-        "empid": 102599,
+        "empid": "102599",
         "name": "Dr.R.S.Ponmagal",
         "designation": "Associate professor",
         "contactno": 9698433804,
@@ -73,7 +73,7 @@
         "responsibility": "Year Coordinator (2020-2024)"
       },
       {
-        "empid": 101870,
+        "empid": "101870",
         "name": "Dr.Dorathi Jayaseeli J D",
         "designation": "Assistant Professor",
         "contactno": 9444222818,
@@ -82,7 +82,7 @@
         "responsibility": "Year Coordinator (2020-2024)"
       },
       {
-        "empid": 101358,
+        "empid": "101358",
         "name": "Dr.K.Deeba",
         "designation": "Assistant Professor",
         "contactno": 9715241977,
@@ -91,7 +91,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2020-2024)"
       },
       {
-        "empid": 100934,
+        "empid": "100934",
         "name": "Mr.S.Jagadeesan",
         "designation": "Assistant Professor",
         "contactno": 9994758364,
@@ -100,7 +100,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2020-2024)"
       },
       {
-        "empid": 102692,
+        "empid": "102692",
         "name": "Dr.M.Aruna",
         "designation": "Assistant Professor",
         "contactno": 9842973841,
@@ -109,7 +109,7 @@
         "responsibility": "Computing Technologies Placement Coordinator (2020-2024)"
       },
       {
-        "empid": 100753,
+        "empid": "100753",
         "name": "Dr. R.Jeya",
         "designation": "Assistant Professor",
         "contactno": 9445360972,
@@ -118,7 +118,7 @@
         "responsibility": "Year Coordinator (2021-2025)"
       },
       {
-        "empid": 100772,
+        "empid": "100772",
         "name": "Dr.G.K.Sandhia",
         "designation": "Assistant Professor",
         "contactno": 9944575181,
@@ -127,7 +127,7 @@
         "responsibility": "Year Coordinator (2021-2025)"
       },
       {
-        "empid": 101581,
+        "empid": "101581",
         "name": "Mrs.S.Poornima",
         "designation": "Assistant Professor",
         "contactno": 9790749571,
@@ -136,7 +136,7 @@
         "responsibility": "Year Coordinator (2022-2026)"
       },
       {
-        "empid": 100959,
+        "empid": "100959",
         "name": "Dr.C.Jothi Kumar",
         "designation": "Assistant Professor",
         "contactno": 9962346560,
@@ -145,7 +145,7 @@
         "responsibility": "Year Coordinator (2022-2026)"
       },
       {
-        "empid": 101264,
+        "empid": "101264",
         "name": "Dr. P.Saranya",
         "designation": "Assistant Professor",
         "contactno": 9500362527,
@@ -154,7 +154,7 @@
         "responsibility": "Year Coordinator (2022-2026)"
       },
       {
-        "empid": 102462,
+        "empid": "102462",
         "name": "Dr. C.N.S. Vinoth Kumar",
         "designation": "Associate Professor",
         "contactno": 9944599129,
@@ -163,7 +163,7 @@
         "responsibility": "Networking and Communications Overall Placement Coordinator"
       },
       {
-        "empid": 102680,
+        "empid": "102680",
         "name": "Dr.K.Deepa Thilak",
         "designation": "Assistant Professor",
         "contactno": 9566732457,
@@ -172,7 +172,7 @@
         "responsibility": "Placement Coordinator (2020-2024)"
       },
       {
-        "empid": 102681,
+        "empid": "102681",
         "name": "Dr.K.Kalaiselvi",
         "designation": "Assistant Professor",
         "contactno": 9962572473,
@@ -181,7 +181,7 @@
         "responsibility": "Placement Coordinator (2020-2024)"
       },
       {
-        "empid": 101541,
+        "empid": "101541",
         "name": "Mr.P.Savaridaasan",
         "designation": "Assistant Professor",
         "contactno": 9894560296,
@@ -190,7 +190,7 @@
         "responsibility": "Placement Coordinator (2021-2025)"
       },
       {
-        "empid": 101048,
+        "empid": "101048",
         "name": "Dr.K.Nimala",
         "designation": "Assistant Professor",
         "contactno": 9884012089,
@@ -199,52 +199,52 @@
         "responsibility": "Networking and Communications Year Coordinator (2019-2023)"
       },
       {
-        "empid": 102754,
+        "empid": "102754",
         "name": "Dr. P. Kanmani",
         "designation": "Assistant Professor",
         "contactno": 9976916147,
         "email": "kanmanip@srmist.edu.in",
-        "dept": "DSBS",
+        "dept": "Data Science and Business Systems",
         "responsibility": "DSBS Overall Placement Coordinator"
       },
       {
-        "empid": 102937,
+        "empid": "102937",
         "name": "Dr.N.Manikandan",
         "designation": "Assistant Professor",
         "contactno": 8667820410,
         "email": "manikann6@srmist.edu.in",
-        "dept": "DSBS",
+        "dept": "Data Science and Business Systems",
         "responsibility": "DSBS Placement Coordinator"
       },
       {
-        "empid": 102673,
+        "empid": "102673",
         "name": "Dr.M.Ramprasath",
         "designation": "Assistant Professor",
         "contactno": 9994041003,
         "email": "ramprasm@srmist.edu.in",
-        "dept": "DSBS",
+        "dept": "Data Science and Business Systems",
         "responsibility": "DSBS Placement Coordinator"
       },
       {
-        "empid": 102751,
+        "empid": "102751",
         "name": "Dr. T. R. Saravanan",
         "designation": "Assistant Professor",
         "contactno": 9841644189,
         "email": "saravant1@srmist.edu.in",
-        "dept": "DSBS",
+        "dept": "Data Science and Business Systems",
         "responsibility": "Computational Intelligence Overall Placement Coordinator"
       },
       {
-        "empid": 101930,
+        "empid": "101930",
         "name": "Dr.E.Sasikala",
         "designation": "Professor",
         "contactno": 9976725441,
         "email": "sasikale@srmist.edu.in",
-        "dept": "DSBS",
+        "dept": "Data Science and Business Systems",
         "responsibility": "Computational Intelligence Year Coordinator"
       },
       {
-        "empid": 100197,
+        "empid": "100197",
         "name": "Dr. T. S. Shiny Angel",
         "designation": "Associate Professor",
         "contactno": 9094411313,
@@ -253,7 +253,7 @@
         "responsibility": "Computational Intelligence Year Coordinator"
       },
       {
-        "empid": 103035,
+        "empid": "103035",
         "name": "Dr. A. Sheryl Oliver",
         "designation": "Assistant Professor",
         "contactno": 9940422959,
@@ -262,7 +262,7 @@
         "responsibility": "Computational Intelligence Placement Coordinator"
       },
       {
-        "empid": 103008,
+        "empid": "103008",
         "name": "Dr. B. Pitchaimanickam",
         "designation": "Assistant Professor",
         "contactno": 9976351028,
@@ -271,7 +271,7 @@
         "responsibility": "Computational Intelligence Placement Coordinator"
       },
       {
-        "empid": 103033,
+        "empid": "103033",
         "name": "Dr.R. Maivizhi",
         "designation": "Assistant Professor",
         "contactno": 9655554718,

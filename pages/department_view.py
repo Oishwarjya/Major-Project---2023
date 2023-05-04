@@ -113,7 +113,7 @@ else:
                         ax.set_title("Computing Technologies Queries")
                         st.pyplot(fig)
                     elif i==1:
-                        ax.set_title("Networking and Commubication Queries")
+                        ax.set_title("Networking and Communication Queries")
                         st.pyplot(fig)
                     elif i==2:
                         ax.set_title("Computational Intelligence Queries")

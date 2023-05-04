@@ -1,7 +1,26 @@
 {
     "student": [
         {
-            "queries": [],
+            "queries": [
+                {
+                    "student_name": "Oishwarjya",
+                    "email_id": "ob7029@srmist.edu.in",
+                    "company": "Wells Fargo",
+                    "date": "2023-04-12",
+                    "subject": "test link",
+                    "query": "offer letter not received",
+                    "status": "Resolved"
+                },
+                {
+                    "student_name": "Shreya Shukla",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "AB Inbev",
+                    "date": "2023-04-17",
+                    "subject": "offer letter issue",
+                    "query": "respected sir, \nwe did internship for 6 months but no job given.",
+                    "status": "unresolved"
+                }
+            ],
             "regno": "RA2011003010001",
             "username": "Tushar Sharma",
             "dob": "07-07-2001",
@@ -42,12 +61,21 @@
             "regno": "RA1911003010688",
             "username": "Oishwarjya Banerjee",
             "dob": "22-11-2001",
-            "dept": "Computing Technologies",
+            "dept": "Networking and Communications",
             "section": "A1-\u00ce\u00b1",
             "email": "ob7029@srmist.edu.in"
         },
         {
             "queries": [
+                {
+                    "student_name": "Shreya Shukla",
+                    "email_id": "ss5673@srmist.edu.in",
+                    "company": "Barclays",
+                    "date": "2023-05-04",
+                    "subject": "Offer letter",
+                    "query": "Offer letter not received and no information regarding date of joining and location received.",
+                    "status": "unresolved"
+                },
                 {
                     "student_name": "Shreya ",
                     "email_id": "ss5673@srmist.edu.in",
@@ -75,11 +103,12 @@
                     "query": "we haven't received the offer letter and no information about joining date given till now",
                     "status": "unresolved"
                 }
+                
             ],
             "regno": "RA1911003010429",
             "username": "Shreya Shukla",
             "dob": "12-03-2001",
-            "dept": "Computing Technologies",
+            "dept": "Data Science and Business Systems",
             "section": "A1-\u00ce\u00b1",
             "email": "ss5673@srmist.edu.in"
         },
