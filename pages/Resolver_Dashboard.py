@@ -19,7 +19,8 @@ df = px.data.iris()
 with open('db_resolver.json') as f:
     resolver_data = json.load(f)
 
-@st.cache_data
+@st.experimental_memo
+#@st.cache_data
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()

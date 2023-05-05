@@ -13,7 +13,7 @@ data = json.load(f)
 
 
 #@st.cache_data
-@st.cache_data
+@st.experimental_memo
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
